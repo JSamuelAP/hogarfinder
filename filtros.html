@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+		<!-- Bootstrap icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+		/>
+		<title>Filtros | HogarFinder</title>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-expand-sm navbar-light bg-light">
+				<div class="container">
+					<a class="navbar-brand" href="/">HogarFinder</a>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mb-0 mb-lg-0 flex-fill">
+							<li class="nav-item mx-auto">
+								<a class="nav-link active" aria-current="page" href="#"
+									>Buscar</a
+								>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="login.html">Iniciar sesión</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="signin.html">Crear cuenta</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main class="mt-5">
+			<div class="container">
+				<h1 class="fw-bold">Filtros de búsqueda</h1>
+				<form class="mt-4">
+					<div class="row gy-4">
+						<div class="col-12 col-md-6">
+							<div class="form-check mb-2">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									value=""
+									id="check-nombre"
+								/>
+								<label class="form-check-label" for="check-nombre">
+									Filtrar por nombre
+								</label>
+							</div>
+							<input
+								type="text"
+								class="form-control form-control-lg"
+								id="input-nombre"
+								placeholder="Nombre del servicio"
+								disabled
+							/>
+						</div>
+						<div class="col-12 col-md-6">
+							<div class="form-check mb-2">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									value=""
+									id="check-precio"
+								/>
+								<label class="form-check-label" for="check-precio">
+									Filtrar por precio
+								</label>
+							</div>
+							<div class="row gx-2">
+								<div class="col-6 col-lg-4">
+									<input
+										type="number"
+										class="form-control form-control-lg"
+										id="input-precio-minimo"
+										placeholder="$ Minimo"
+										min="0"
+										disabled
+									/>
+								</div>
+								<div class="col-6 col-lg-4">
+									<input
+										type="number"
+										class="form-control form-control-lg"
+										id="input-precio-maximo"
+										placeholder="$ Maximo"
+										min="0"
+										disabled
+									/>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-6">
+							<div class="form-check mb-2">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									value=""
+									id="check-ubicacion"
+								/>
+								<label class="form-check-label" for="check-ubicacion">
+									Filtrar por ubicación
+								</label>
+							</div>
+							<input
+								type="text"
+								class="form-control form-control-lg"
+								id="input-ubicacion"
+								placeholder="Colonia, calle o CP"
+								disabled
+							/>
+						</div>
+						<div class="col-12 text-center">
+							<input
+								class="btn btn-info btn-lg text-white px-5"
+								type="button"
+								value="Buscar"
+							/>
+						</div>
+					</div>
+				</form>
+			</div>
+		</main>
+		<footer class="bg-light py-4 mt-5">
+			<div class="container">
+				<p class="mb-0 text-center">&copy; 2023 HogarFinder</p>
+			</div>
+		</footer>
+		<!-- Bootstrap Javascript -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
