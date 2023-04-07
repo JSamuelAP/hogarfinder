@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+		<!-- Bootstrap icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+		/>
+		<title>Editar perfil | HogarFinder</title>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-expand-sm navbar-light bg-light">
+				<div class="container">
+					<a class="navbar-brand" href="/">HogarFinder</a>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mb-0 mb-lg-0 flex-fill">
+							<li class="nav-item mx-auto">
+								<a class="nav-link active" aria-current="page" href="#">
+									Buscar
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="perfil.html">Perfil</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="index.html">Cerrar sesión</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main class="mt-5">
+			<div class="container text-center">
+				<h1 class="fw-bold mb-5">Editar datos</h1>
+				<div class="row justify-content-center">
+					<div class="col-10 col-sm-8 col-lg-6 col-xl-4">
+						<form>
+							<div class="mb-4">
+								<label for="input-nombre-cliente" class="form-label">
+									Nombre
+								</label>
+								<input
+									type="text"
+									class="form-control"
+									id="input-nombre-cliente"
+									value="Nombre actual del cliente"
+								/>
+							</div>
+							<div class="mb-4">
+								<label for="input-telefono-cliente" class="form-label">
+									Teléfono
+								</label>
+								<input
+									type="text"
+									class="form-control"
+									id="input-telefono-cliente"
+									value="4779999999"
+								/>
+							</div>
+							<div class="mb-4">
+								<label for="input-correo-cliente" class="form-label">
+									Correo
+								</label>
+								<input
+									type="email"
+									class="form-control"
+									id="input-correo-cliente"
+									value="correoactual@gmail.com"
+								/>
+							</div>
+							<div class="mb-4">
+								<label for="input-foto-cliente" class="form-label">
+									Foto de perfil
+								</label>
+								<input
+									type="file"
+									class="form-control"
+									id="input-foto-cliente"
+									accept="image/*"
+								/>
+							</div>
+							<div class="mb-4">
+								<label for="input-nuevo-password-cliente" class="form-label">
+									Nueva contraseña
+								</label>
+								<input
+									type="password"
+									class="form-control"
+									id="input-nuevo-password-cliente"
+								/>
+							</div>
+							<div class="mb-4">
+								<label
+									for="input-confirmar-nuevo-password-cliente"
+									class="form-label"
+								>
+									Confirmar nueva contraseña
+								</label>
+								<input
+									type="password"
+									class="form-control"
+									id="input-confirmar-nuevo-password-cliente"
+								/>
+							</div>
+							<div class="mb-4">
+								<label for="input-password-actual-cliente" class="form-label">
+									Contraseña actual
+								</label>
+								<input
+									type="password"
+									class="form-control"
+									id="input-password-actual-cliente"
+								/>
+							</div>
+							<input
+								class="btn btn-info btn-lg text-white px-5"
+								type="button"
+								value="Actualizar"
+							/>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="bg-light py-4 mt-5">
+			<div class="container">
+				<p class="mb-0 text-center">&copy; 2023 HogarFinder</p>
+			</div>
+		</footer>
+		<!-- Bootstrap Javascript -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
