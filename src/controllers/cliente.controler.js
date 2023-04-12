@@ -15,27 +15,6 @@ export const getCliente = async (req, res) => {
 	res.render("perfil", { id });
 };
 
-export const renderLogin = async (req, res) => {
-	res.render("login");
-};
-
-export const renderSignup = async (req, res) => {
-	res.render("signup");
-};
-
-export const getNegocio = async (req, res) => {
-	const id = req.params.id;
-	res.render("perfil-negocio", { id });
-};
-
-export const renderEditarNegocio = async (req, res) => {
-	res.render("editar-perfil-negocio");
-};
-
 export const renderEditarCliente = async (req, res) => {
 	res.render("editar-perfil");
-};
-
-export const renderSolicituded = async (req, res) => {
-	res.render("solicitudes");
 };

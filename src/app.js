@@ -1,7 +1,10 @@
 import express from "express";
 import config from "./config";
-import cuentaRoutes from "./routes/cuenta.routes";
+import authRoutes from "./routes/auth.routes";
+import clienteRoutes from "./routes/cliente.routes";
+import negocioRoutes from "./routes/negocio.routes";
 import servicioRoutes from "./routes/servicio.routes";
+import adminRoutes from "./routes/administrador.routes";
 
 const app = express();
 
@@ -15,7 +18,10 @@ app.set("view engine", "pug");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // Para poder recibir datos de formularios HTML
 
-app.use(cuentaRoutes);
+app.use(authRoutes);
+app.use(clienteRoutes);
+app.use(negocioRoutes);
 app.use(servicioRoutes);
+app.use(adminRoutes);
 
 export default app;
