@@ -1,0 +1,47 @@
+include partials/head
+header
+  nav.navbar.navbar-expand-sm.navbar-light.bg-light
+    .container
+      a.navbar-brand(href='/') HogarFinder
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mb-0.mb-lg-0.flex-fill
+          li.nav-item.mx-auto
+            a.nav-link.active(aria-current='page' href='/')
+              | Buscar
+          li.nav-item
+            a.nav-link(href='login') Iniciar sesión
+          li.nav-item
+            a.nav-link(href='signin') Crear cuenta
+main.mt-5
+  .container
+    h1.fw-bold Filtros de búsqueda
+    form.mt-4
+      .row.gy-4
+        .col-12.col-md-6
+          .form-check.mb-2
+            input#check-nombre.form-check-input(type='checkbox' value='')
+            label.form-check-label(for='check-nombre')
+              | Filtrar por nombre
+          input#input-nombre.form-control.form-control-lg(type='text' placeholder='Nombre del servicio' disabled='')
+        .col-12.col-md-6
+          .form-check.mb-2
+            input#check-precio.form-check-input(type='checkbox' value='')
+            label.form-check-label(for='check-precio')
+              | Filtrar por precio
+          .row.gx-2
+            .col-6.col-lg-4
+              input#input-precio-minimo.form-control.form-control-lg(type='number' placeholder='$ Minimo' min='0' disabled='')
+            .col-6.col-lg-4
+              input#input-precio-maximo.form-control.form-control-lg(type='number' placeholder='$ Maximo' min='0' disabled='')
+        .col-12.col-md-6
+          .form-check.mb-2
+            input#check-ubicacion.form-check-input(type='checkbox' value='')
+            label.form-check-label(for='check-ubicacion')
+              | Filtrar por ubicación
+          input#input-ubicacion.form-control.form-control-lg(type='text' placeholder='Colonia, calle o CP' disabled='')
+        .col-12.text-center
+          input.btn.btn-info.btn-lg.text-white.px-5(type='button' value='Buscar')
+include partials/footer
+include partials/scripts

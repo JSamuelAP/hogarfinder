@@ -1,0 +1,45 @@
+include partials/head
+header
+  nav.navbar.navbar-expand-sm.navbar-light.bg-light
+    .container
+      a.navbar-brand(href='/') HogarFinder
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mb-0.mb-lg-0.flex-fill
+          li.nav-item.mx-auto
+            a.nav-link.active(aria-current='page' href='/')
+              | Buscar
+          li.nav-item
+            a.nav-link(href='perfil-negocio/1') Perfil
+          li.nav-item
+            a.nav-link(href='/') Cerrar sesión
+main.mt-5
+  .container.text-center
+    h1.fw-bold.mb-5 Publicar servicio
+    .row.justify-content-center
+      .col-10.col-sm-8.col-lg-6.col-xl-4
+        form
+          .mb-4
+            label.form-label(for='input-nombre-servicio')
+              | Nombre del servcio
+            input#input-nombre-servicio.form-control(type='text' required='')
+          .mb-4
+            label.form-label(for='input-descripcion-servicio')
+              | Descripción
+            textarea#input-descripcion-servicio.form-control(rows='3')
+          .mb-4
+            label.form-label(for='input-precio-servicio')
+              | Precio
+            .input-group.mb-3
+              span.input-group-text $
+              input#input-precio-servicio.form-control(type='number' value='0' min='0')
+          .mb-4
+            label.form-label(for='input-img-servicio')
+              | Imágen
+            input#input-img-servicio.form-control(type='file' accept='image/*')
+          button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
+            i.bi.bi-upload.me-1
+            | &nbsp;Publicar
+include partials/footer
+include partials/scripts

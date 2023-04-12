@@ -1,0 +1,59 @@
+include partials/head
+header
+  nav.navbar.navbar-expand-sm.navbar-light.bg-light
+    .container
+      a.navbar-brand(href='/') HogarFinder
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mb-0.mb-lg-0.flex-fill
+          li.nav-item.mx-auto
+            a.nav-link.active(aria-current='page' href='/')
+              | Buscar
+          li.nav-item
+            a.nav-link(href='perfil-negocio/1') Perfil
+          li.nav-item
+            a.nav-link(href='/') Cerrar sesión
+main.mt-5
+  .container.text-center
+    h1.fw-bold.mb-5 Editar datos
+    .row.justify-content-center
+      .col-10.col-sm-8.col-lg-6.col-xl-4
+        form
+          .mb-4
+            label.form-label(for='input-nombre-negocio')
+              | Nombre
+            input#input-nombre-negocio.form-control(type='text' value='Nombre actual del negocio')
+          .mb-4
+            label.form-label(for='input-telefono-negocio')
+              | Teléfono
+            input#input-telefono-negocio.form-control(type='tel' value='4779999999')
+          .mb-4
+            label.form-label(for='input-direccion-negocio')
+              | Dirección
+            input#input-direccion-negocio.form-control(type='text' value='Dirección actual del negocio')
+          .mb-4
+            label.form-label(for='input-correo-negocio')
+              | Correo
+            input#input-correo-negocio.form-control(type='email' value='correoactual@gmail.com')
+          .mb-4
+            label.form-label(for='input-foto-negocio')
+              | Foto de perfil
+            input#input-foto-negocio.form-control(type='file' accept='image/*')
+          .mb-4
+            label.form-label(for='input-nuevo-password-negocio')
+              | Nueva contraseña
+            input#input-nuevo-password-negocio.form-control(type='password')
+          .mb-4
+            label.form-label(for='input-confirmar-nuevo-password-negocio')
+              | Confirmar nueva contraseña
+            input#input-confirmar-nuevo-password-negocio.form-control(type='password')
+          .mb-4
+            label.form-label(for='input-password-actual-negocio')
+              | Contraseña actual
+            input#input-password-actual-negocio.form-control(type='password')
+          button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
+            i.bi.bi-arrow-counterclockwise
+            | &nbsp;Actualizar
+include partials/footer
+include partials/scripts

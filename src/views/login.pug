@@ -1,0 +1,26 @@
+include partials/head
+header
+  nav.navbar.navbar-light.bg-light
+    .container.justify-content-center
+      a.navbar-brand(href='/') Logo HogarFinder
+main.mt-5
+  .container.text-center
+    h1.fw-bold.mb-5 Inicie sesión
+    .row.justify-content-center
+      .col-10.col-sm-8.col-lg-6.col-xl-4
+        form
+          .mb-4
+            label.form-label(for='input-correo') Correo
+            input#input-correo.form-control(type='email')
+          .mb-4
+            label.form-label(for='input-password')
+              | Contraseña
+            input#input-password.form-control(type='password')
+          button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
+            i.bi.bi-box-arrow-in-right.me-2
+            | Log In
+          p.mt-5
+            | ¿No tiene cuenta? cree una:&nbsp;
+            a.link-info(href='signup') Sign up
+include partials/footer
+include partials/scripts

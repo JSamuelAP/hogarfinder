@@ -1,6 +1,6 @@
 import express from "express";
 import config from "./config";
-import clientesRoutes from "./routes/cliente.routes";
+import cuentaRoutes from "./routes/cuenta.routes";
 import servicioRoutes from "./routes/servicio.routes";
 
 const app = express();
@@ -15,7 +15,7 @@ app.set("view engine", "pug");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // Para poder recibir datos de formularios HTML
 
-app.use(clientesRoutes);
+app.use(cuentaRoutes);
 app.use(servicioRoutes);
 
 export default app;

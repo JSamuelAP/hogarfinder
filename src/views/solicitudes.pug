@@ -1,0 +1,98 @@
+include partials/head
+header
+  nav.navbar.navbar-expand-sm.navbar-light.bg-light
+    .container
+      a.navbar-brand(href='/') HogarFinder
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mb-0.mb-lg-0.flex-fill
+          li.nav-item.mx-auto
+            a.nav-link.active(aria-current='page' href='/')
+              | Buscar
+          li.nav-item
+            a.nav-link(href='/solicitudes') Solicitudes
+          li.nav-item
+            a.nav-link(href='/reportes') Reportes
+          li.nav-item
+            a.nav-link(href='/') Cerrar sesión
+main.mt-5
+  .container
+    h1.fw-bold.mb-4
+      | Solicitudes de creación de cuentas de negocios
+    .table-responsive
+      table.table.table-bordered
+        thead
+          tr
+            th(scope='col' style='min-width: 150px') Negocio
+            th(scope='col' style='min-width: 150px') Teléfono
+            th(scope='col' style='min-width: 150px') Dirección
+            th(scope='col' style='min-width: 110px') Archivos
+            th(scope='col' style='min-width: 150px') Estado
+        tbody
+          tr
+            th(scope='row') Nombre del negocio
+            td
+              a.btn.btn-info.btn-sm.text-white(href='' role='button')
+                i.bi.bi-telephone-fill.me-1
+                | &nbsp;477-999-9999
+            td
+              | Priv. Tecnologico S/n, Industrial Julian de Obregon, 37290
+            td
+              a.link-dark.fs-1(href='archivo.pdf')
+                i.bi.bi-file-earmark-pdf
+              a.link-dark.fs-1(href='archivo.pdf')
+                i.bi.bi-file-earmark-pdf
+              a.link-dark.fs-1(href='archivo.pdf')
+                i.bi.bi-file-earmark-pdf
+            td
+              select.form-select
+                option(value='1' selected='') En revisión
+                option.text-success(value='2') Aceptada
+                option.text-danger(value='3') Rechazada
+          tr
+            th(scope='row') Nombre del negocio
+            td
+              a.btn.btn-info.btn-sm.text-white(href='' role='button')
+                i.bi.bi-telephone-fill.me-1
+                | &nbsp;477-999-9999
+            td
+              | Priv. Tecnologico S/n, Industrial Julian de Obregon, 37290
+            td
+              a.link-dark.fs-1(href='archivo.pdf')
+                i.bi.bi-file-earmark-pdf
+              a.link-dark.fs-1(href='archivo.pdf')
+                i.bi.bi-file-earmark-pdf
+              a.link-dark.fs-1(href='archivo.pdf')
+                i.bi.bi-file-earmark-pdf
+            td
+              select.form-select
+                option(value='1' selected='') En revisión
+                option.text-success(value='2') Aceptada
+                option.text-danger(value='3') Rechazada
+          tr
+            th(scope='row') Nombre del negocio
+            td
+              a.btn.btn-info.btn-sm.text-white(href='' role='button')
+                i.bi.bi-telephone-fill.me-1
+                | &nbsp;477-999-9999
+            td
+              | Priv. Tecnologico S/n, Industrial Julian de Obregon, 37290
+            td
+              a.link-dark.fs-1(href='archivo.pdf')
+                i.bi.bi-file-earmark-pdf
+              a.link-dark.fs-1(href='archivo.pdf')
+                i.bi.bi-file-earmark-pdf
+              a.link-dark.fs-1(href='archivo.pdf')
+                i.bi.bi-file-earmark-pdf
+            td
+              select.form-select
+                option(value='1' selected='') En revisión
+                option.text-success(value='2') Aceptada
+                option.text-danger(value='3') Rechazada
+    .text-end
+      button.btn.btn-info.btn-lg.text-white(type='button')
+        i.bi.bi-save.me-1
+        | &nbsp;Guardar
+include partials/footer
+include partials/scripts

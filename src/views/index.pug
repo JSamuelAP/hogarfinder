@@ -1,3 +1,121 @@
 include partials/head
-h1 Hola mundo #{title}
+header
+  nav.navbar.navbar-expand-sm.navbar-light.bg-light
+    .container
+      a.navbar-brand(href='/') HogarFinder
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mb-0.mb-lg-0.flex-fill
+          li.nav-item.mx-auto
+            a.nav-link.active(aria-current='page' href='/')
+              | Buscar
+          li.nav-item
+            a.nav-link(href='login') Iniciar sesión
+          li.nav-item
+            a.nav-link(href='signin') Crear cuenta
+aside
+  .container
+    button.btn.btn-light.mt-1(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample')
+      i.bi.bi-list(style='font-size: 2rem')
+  #offcanvasExample.offcanvas.offcanvas-start(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
+    .offcanvas-header
+      h5#offcanvasExampleLabel.offcanvas-title.fw-bold
+        | Categorías
+      button.btn-close.text-reset(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
+    .offcanvas-body
+      .list-group.list-group-flush
+        button.list-group-item.list-group-item-action(type='button')
+          | Limpieza
+        button.list-group-item.list-group-item-action(type='button')
+          | Reparación
+        button.list-group-item.list-group-item-action(type='button')
+          | Plomería
+        button.list-group-item.list-group-item-action(type='button')
+          | Jardinería
+        button.list-group-item.list-group-item-action(type='button')
+          | Electricidad
+        button.list-group-item.list-group-item-action(type='button')
+          | Carpinteria
+        button.list-group-item.list-group-item-action(type='button')
+          | Pintura
+        button.list-group-item.list-group-item-action(type='button')
+          | Comida
+        button.list-group-item.list-group-item-action(type='button')
+          | Niñeras
+        button.list-group-item.list-group-item-action(type='button')
+          | Mascotas
+        button.list-group-item.list-group-item-action(type='button')
+          | Herrería
+        button.list-group-item.list-group-item-action(type='button')
+          | Cerrajería
+        button.list-group-item.list-group-item-action(type='button')
+          | Mudanzas
+        button.list-group-item.list-group-item-action(type='button')
+          | Autolavado
+main
+  .container
+    .d-flex.justify-content-between.mt-4
+      h1.fw-bold Resultados
+      a.btn.btn-info.btn-lg.text-white(href='filtros' role='button')
+        i.bi.bi-funnel-fill.me-2
+        | Filtros
+    .mt-4.row.g-3
+      article.col-12.col-lg-6
+        a.card.text-decoration-none.text-reset(href='servicio/1')
+          .d-flex.flex-column.flex-sm-row
+            .d-flex.d-sm-block
+              img.rounded-start.col(src='https://placehold.co/200/skyblue/white' alt='Servicio')
+            div
+              .card-body
+                h5.card-title.fw-bold Nombre del servicio
+                p.card-text
+                  small.text-muted Nombre de la empresa
+                p.card-text
+                  | This is a wider card with supporting text below as a
+                  | natural lead-in to additional content. This content is a
+                  | little bit longer.
+      article.col-12.col-lg-6
+        a.card.text-decoration-none.text-reset(href='servicio/2')
+          .d-flex.flex-column.flex-sm-row
+            .d-flex.d-sm-block
+              img.rounded-start.col(src='https://placehold.co/200/skyblue/white' alt='Servicio')
+            div
+              .card-body
+                h5.card-title.fw-bold Nombre del servicio
+                p.card-text
+                  small.text-muted Nombre de la empresa
+                p.card-text
+                  | This is a wider card with supporting text below as a
+                  | natural lead-in to additional content. This content is a
+                  | little bit longer.
+      article.col-12.col-lg-6
+        a.card.text-decoration-none.text-reset(href='servicio/3')
+          .d-flex.flex-column.flex-sm-row
+            .d-flex.d-sm-block
+              img.rounded-start.col(src='https://placehold.co/200/skyblue/white' alt='Servicio')
+            div
+              .card-body
+                h5.card-title.fw-bold Nombre del servicio
+                p.card-text
+                  small.text-muted Nombre de la empresa
+                p.card-text
+                  | This is a wider card with supporting text below as a
+                  | natural lead-in to additional content. This content is a
+                  | little bit longer.
+      article.col-12.col-lg-6
+        a.card.text-decoration-none.text-reset(href='servicio/4')
+          .d-flex.flex-column.flex-sm-row
+            .d-flex.d-sm-block
+              img.rounded-start.col(src='https://placehold.co/200/skyblue/white' alt='Servicio')
+            div
+              .card-body
+                h5.card-title.fw-bold Nombre del servicio
+                p.card-text
+                  small.text-muted Nombre de la empresa
+                p.card-text
+                  | This is a wider card with supporting text below as a
+                  | natural lead-in to additional content. This content is a
+                  | little bit longer.
+include partials/footer
 include partials/scripts
