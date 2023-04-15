@@ -9,7 +9,8 @@ export const getServicios = async (req, res) => {
 };
 
 export const renderFiltros = async (req, res) => {
-	res.render("filtros", { title: "Filtros" });
+	//res.type("text/javascript");
+	res.render("filtros", { title: "Filtros", scripts: ["filtros.js"] });
 };
 
 export const getServicio = async (req, res) => {

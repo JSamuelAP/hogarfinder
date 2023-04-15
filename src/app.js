@@ -15,6 +15,7 @@ app.set("view engine", "pug");
 
 // Middlewares
 // Antes de que se lleguen a las rutas
+app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // Para poder recibir datos de formularios HTML
 
