@@ -79,7 +79,7 @@ main.mt-5
           i.bi.bi-star-fill.text-warning.fs-3.me-1
           i.bi.bi-star-half.text-warning.fs-3.me-1
           | &nbsp;4.5
-        form.mb-4
+        form
           .mb-2
             label.form-label(for='exampleInputEmail1')
               | Escribe un comentario
@@ -97,6 +97,10 @@ main.mt-5
               button.btn.btn-info.text-white.w-100(type='submit')
                 i.bi.bi-send-fill.me-1
                 | &nbsp;Enviar
+        p.text-end
+            a(href='/perfil-negocio/' + id + '/reportar-negocio').link-danger
+                i.bi.bi-exclamation-square-fill
+                |&nbsp;Reportar
         div
           article.mb-4
             div
