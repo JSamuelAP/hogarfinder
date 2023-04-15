@@ -5,18 +5,18 @@ export const getServicios = async (req, res) => {
 	//const result = await pool.request().query(queries.getClientes);
 
 	//res.json(result.recordset);
-	res.render("index");
+	res.render("index", { title: "Inicio" });
 };
 
 export const renderFiltros = async (req, res) => {
-	res.render("filtros");
+	res.render("filtros", { title: "Filtros" });
 };
 
 export const getServicio = async (req, res) => {
 	const id = req.params.id;
-	res.render("servicio", { id });
+	res.render("servicio", { title: `Nombre del servicio ${id}`, id });
 };
 
 export const renderCrearPublicacion = async (req, res) => {
-	res.render("crear-publicacion");
+	res.render("crear-publicacion", { title: "Crear publicación" });
 };
