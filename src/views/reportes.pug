@@ -1,0 +1,66 @@
+include partials/head
+header
+  nav.navbar.navbar-expand-sm.navbar-light.bg-light
+    .container
+      a.navbar-brand(href='/') HogarFinder
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mb-0.mb-lg-0.flex-fill
+          li.nav-item.mx-auto
+            a.nav-link.active(aria-current='page' href='/')
+              | Buscar
+          li.nav-item
+            a.nav-link(href='/solicitudes') Solicitudes
+          li.nav-item
+            a.nav-link(href='/reportes') Reportes
+          li.nav-item
+            a.nav-link(href='/') Cerrar sesión
+main.mt-5
+  .container
+    h1.fw-bold.mb-4
+      | Reportes de negocios
+    .table-responsive
+      table.table.table-bordered
+        thead
+          tr
+            th(scope='col' style='min-width: 150px') Cliente
+            th(scope='col' style='min-width: 150px') Teléfono cliente
+            th(scope='col' style='min-width: 150px') Negocio reportado
+            th(scope='col' style='min-width: 300px') Problema descrito
+        tbody
+          tr
+            th.fw-normal(scope='row') Nombre del cliente
+            td
+              a.btn.btn-info.btn-sm.text-white(href='' role='button')
+                i.bi.bi-telephone-fill.me-1
+                | &nbsp;477-999-9999
+            td
+              a(href="/perfil-negocio/2").link-dark Nombre del negocio
+            td
+              p
+                | Quejas o problemas que el cliente tiene sobre el negocio y se lo desea dar a conocer a los administradores.
+          tr
+            th.fw-normal(scope='row') Nombre del cliente
+            td
+              a.btn.btn-info.btn-sm.text-white(href='' role='button')
+                i.bi.bi-telephone-fill.me-1
+                | &nbsp;477-999-9999
+            td
+              a(href="/perfil-negocio/2").link-dark Nombre del negocio
+            td
+              p
+                | Quejas o problemas que el cliente tiene sobre el negocio y se lo desea dar a conocer a los administradores.
+          tr
+            th.fw-normal(scope='row') Nombre del cliente
+            td
+              a.btn.btn-info.btn-sm.text-white(href='' role='button')
+                i.bi.bi-telephone-fill.me-1
+                | &nbsp;477-999-9999
+            td
+              a(href="/perfil-negocio/2").link-dark Nombre del negocio
+            td
+              p
+                | Quejas o problemas que el cliente tiene sobre el negocio y se lo desea dar a conocer a los administradores.
+include partials/footer
+include partials/scripts
