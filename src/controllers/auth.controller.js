@@ -5,5 +5,5 @@ export const renderLogin = async (req, res) => {
 };
 
 export const renderSignup = async (req, res) => {
-	res.render("signup", { title: "Crear cuenta" });
+	res.render("signup", { title: "Crear cuenta", scripts: ["signup.js"] });
 };

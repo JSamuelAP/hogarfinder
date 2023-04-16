@@ -9,66 +9,66 @@ main.mt-5
     .mb-4
       p.d-inline-block.me-2 Quiere registrarse como:
       .form-check.d-inline-block.me-2
-        input#input-cliente.form-check-input(type='radio' name='tipo-negocio' checked='')
-        label.form-check-label(for='input-cliente') Cliente
+        input#checkbox-cliente.form-check-input(type='radio' name='tipo-negocio' checked='')
+        label.form-check-label(for='checkbox-cliente') Cliente
       .form-check.d-inline-block
-        input#input-negocio.form-check-input(type='radio' name='tipo-negocio')
-        label.form-check-label(for='input-negocio') Negocio
+        input#checkbox-negocio.form-check-input(type='radio' name='tipo-negocio')
+        label.form-check-label(for='checkbox-negocio') Negocio
     .row.justify-content-center
       .col-10.col-sm-8.col-lg-6.col-xl-4
-        form
+        form#form-cliente(action='/perfil/1' method='POST')
           .mb-4
             label.form-label(for='input-nombre-cliente')
               | Nombre
-            input#input-nombre-cliente.form-control(type='text')
+            input#input-nombre-cliente.form-control(type='text' required)
           .mb-4
             label.form-label(for='input-telefono-cliente')
               | Teléfono
-            input#input-telefono-cliente.form-control(type='tel')
+            input#input-telefono-cliente.form-control(type='tel' required)
           .mb-4
             label.form-label(for='input-correo-cliente')
               | Correo
-            input#input-correo-cliente.form-control(type='email')
+            input#input-correo-cliente.form-control(type='email' required)
           .mb-4
             label.form-label(for='input-password-cliente')
               | Contraseña
-            input#input-password-cliente.form-control(type='password')
+            input#input-password-cliente.form-control(type='password' required)
           .mb-4
             label.form-label(for='input-confirmar-password-cliente')
               | Confirmar contraseña
-            input#input-confirmar-password-cliente.form-control(type='password')
+            input#input-confirmar-password-cliente.form-control(type='password' required)
           button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
             i.bi.bi-box-arrow-in-right.me-2
             | Crear
-        form.d-none
+        form#form-negocio.d-none(action='/perfil-negocio/1' method='POST')
           .mb-4
             label.form-label(for='input-nombre-dueño-negocio')
               | Nombre del encargado/dueño
-            input.form-control(type='text' id='input-nombre-dueño-negocio')
+            input.form-control(type='text' id='input-nombre-dueño-negocio' required)
           .mb-4
             label.form-label(for='input-nombre-negocio')
               | Nombre del negocio
-            input#input-nombre-negocio.form-control(type='text')
+            input#input-nombre-negocio.form-control(type='text' required)
           .mb-4
             label.form-label(for='input-telefono-negocio')
               | Teléfono del negocio
-            input#input-telefono-negocio.form-control(type='tel')
+            input#input-telefono-negocio.form-control(type='tel' required)
           .mb-4
             label.form-label(for='input-correo-telefono')
               | Correo
-            input#input-correo-telefono.form-control(type='email')
+            input#input-correo-telefono.form-control(type='email' required)
           .mb-4
             label.form-label(for='input-password-negocio')
               | Contraseña
-            input#input-password-negocio.form-control(type='password')
+            input#input-password-negocio.form-control(type='password' required)
           .mb-4
             label.form-label(for='input-confirmar-password-negocio')
               | Confirmar contraseña
-            input#input-confirmar-password-negocio.form-control(type='password')
+            input#input-confirmar-password-negocio.form-control(type='password' required)
           .mb-4
             label.form-label(for='input-archivos-negocio')
               | Documentos (PDF)
-            input#input-archivos-negocio.form-control.form-control-lg(type='file' aria-describedby='descripcion-archivos-negocio' multiple='3' accept='.pdf')
+            input#input-archivos-negocio.form-control.form-control-lg(type='file' aria-describedby='descripcion-archivos-negocio' multiple='3' accept='.pdf' required)
             #descripcion-archivos-negocio.form-text
               | INE, RFC y comprobante de domicilio del encargado/dueño
           button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
