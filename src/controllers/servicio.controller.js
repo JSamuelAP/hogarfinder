@@ -8,13 +8,21 @@ export const getServicios = async (req, res) => {
 };
 
 export const renderFiltros = async (req, res) => {
-	//res.type("text/javascript");
 	res.render("filtros", { title: "Filtros", scripts: ["filtros.js"] });
 };
 
 export const getServicio = async (req, res) => {
 	const id = req.params.id;
-	res.render("servicio", { title: `Nombre del servicio ${id}`, id });
+	const pool = await getConnection();
+	const servicio = await pool
+		.request()
+		.input("id", id)
+		.query(queries.getServicio);
+
+	res.render("servicio", {
+		title: `Nombre del servicio ${id}`,
+		servicio: servicio.recordset[0],
+	});
 };
 
 export const renderCrearPublicacion = async (req, res) => {

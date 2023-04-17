@@ -20,25 +20,20 @@ main.mt-5
       .col-12.col-md-6.col-lg-4
         img.w-100(src='https://placehold.co/200/skyblue/white' alt='Servicio')
       .col-12.col-md-6.col-lg-8
-        h1.fw-bold Nombre del servicio #{id}
+        h1.fw-bold #{servicio.Titulo}
         p.text-muted
           | Por&nbsp;
-          a.link-dark.link-offset-2.link-underline-opacity-25.link-underline-opacity-100-hover(href='/perfil-negocio/' + id)
-            | Nombre del negocio
-          | &nbsp;el 07/04/2023
-        p
-          | Descripción sobre el servicio que ofrece la empresa. Lorem ipsum
-          | dolor sit, amet consectetur adipisicing elit. Officiis obcaecati
-          | neque consequatur enim ex aperiam esse sequi tenetur molestiae,
-          | blanditiis eligendi quasi a cum veniam at et reprehenderit maxime
-          | nulla.
+          a.link-dark.link-offset-2.link-underline-opacity-25.link-underline-opacity-100-hover(href='/perfil-negocio/' + servicio.ID_Negocio)
+            | #{servicio.Nombre_negocio}
+          | &nbsp;el #{servicio.Fecha_creacion}
+        p #{servicio.Descripcion}
         p.text-muted
           | $
-          span.text-body.fs-5 100.00
+          span.text-body.fs-5 #{servicio.precio}
           | &nbsp;MXN
     .text-center
       a.btn.btn-info.btn-lg.text-white(href='' role='button')
         i.bi.bi-telephone-fill.me-1
-        | &nbsp;477-999-9999
+        | &nbsp; #{servicio.Telefono_Negocio}
 include partials/footer
 include partials/scripts
