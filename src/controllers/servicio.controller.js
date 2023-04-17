@@ -1,11 +1,10 @@
 import { getConnection, sql, queries } from "../database";
 
 export const getServicios = async (req, res) => {
-	//const pool = await getConnection();
-	//const result = await pool.request().query(queries.getClientes);
+	const pool = await getConnection();
+	const servicios = await pool.request().query(queries.getServicios);
 
-	//res.json(result.recordset);
-	res.render("index", { title: "Inicio" });
+	res.render("index", { title: "Inicio", servicios: servicios.recordset });
 };
 
 export const renderFiltros = async (req, res) => {

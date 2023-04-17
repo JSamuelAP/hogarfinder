@@ -61,61 +61,17 @@ main
         i.bi.bi-funnel-fill.me-2
         | Filtros
     .mt-4.row.g-3
-      article.col-12.col-lg-6
-        a.card.text-decoration-none.text-reset(href='servicio/1')
-          .d-flex.flex-column.flex-sm-row
-            .d-flex.d-sm-block
-              img.rounded-start.col(src='https://placehold.co/200/skyblue/white' alt='Servicio')
-            div
-              .card-body
-                h5.card-title.fw-bold Nombre del servicio
-                p.card-text
-                  small.text-muted Nombre de la empresa
-                p.card-text
-                  | This is a wider card with supporting text below as a
-                  | natural lead-in to additional content. This content is a
-                  | little bit longer.
-      article.col-12.col-lg-6
-        a.card.text-decoration-none.text-reset(href='servicio/2')
-          .d-flex.flex-column.flex-sm-row
-            .d-flex.d-sm-block
-              img.rounded-start.col(src='https://placehold.co/200/skyblue/white' alt='Servicio')
-            div
-              .card-body
-                h5.card-title.fw-bold Nombre del servicio
-                p.card-text
-                  small.text-muted Nombre de la empresa
-                p.card-text
-                  | This is a wider card with supporting text below as a
-                  | natural lead-in to additional content. This content is a
-                  | little bit longer.
-      article.col-12.col-lg-6
-        a.card.text-decoration-none.text-reset(href='servicio/3')
-          .d-flex.flex-column.flex-sm-row
-            .d-flex.d-sm-block
-              img.rounded-start.col(src='https://placehold.co/200/skyblue/white' alt='Servicio')
-            div
-              .card-body
-                h5.card-title.fw-bold Nombre del servicio
-                p.card-text
-                  small.text-muted Nombre de la empresa
-                p.card-text
-                  | This is a wider card with supporting text below as a
-                  | natural lead-in to additional content. This content is a
-                  | little bit longer.
-      article.col-12.col-lg-6
-        a.card.text-decoration-none.text-reset(href='servicio/4')
-          .d-flex.flex-column.flex-sm-row
-            .d-flex.d-sm-block
-              img.rounded-start.col(src='https://placehold.co/200/skyblue/white' alt='Servicio')
-            div
-              .card-body
-                h5.card-title.fw-bold Nombre del servicio
-                p.card-text
-                  small.text-muted Nombre de la empresa
-                p.card-text
-                  | This is a wider card with supporting text below as a
-                  | natural lead-in to additional content. This content is a
-                  | little bit longer.
+      each servicio in servicios
+        article.col-12.col-lg-6
+          a.card.text-decoration-none.text-reset(href='servicio/' + servicio.ID_Post)
+            .d-flex.flex-column.flex-sm-row
+              .d-flex.d-sm-block
+                img.rounded-start.col(src='https://placehold.co/200/skyblue/white' alt='Servicio')
+              div
+                .card-body
+                  h5.card-title.fw-bold #{servicio.Titulo}
+                  p.card-text
+                    small.text-muted #{servicio.Nombre_negocio}
+                  p.card-text #{servicio.Descripcion}
 include partials/footer
 include partials/scripts
