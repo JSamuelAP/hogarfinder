@@ -22,9 +22,9 @@ main.mt-5
               | Nombre
             input#input-nombre-cliente.form-control(type='text' required)
           .mb-4
-            label.form-label(for='input-telefono-cliente')
-              | Teléfono
-            input#input-telefono-cliente.form-control(type='tel' required)
+            label.form-label(for='input-apellido-cliente')
+              | Apellido
+            input#input-apellido-cliente.form-control(type='text' required)
           .mb-4
             label.form-label(for='input-correo-cliente')
               | Correo
@@ -42,17 +42,54 @@ main.mt-5
             | Crear
         form#form-negocio.d-none(action='/perfil-negocio/1' method='POST')
           .mb-4
-            label.form-label(for='input-nombre-dueño-negocio')
-              | Nombre del encargado/dueño
-            input.form-control(type='text' id='input-nombre-dueño-negocio' required)
-          .mb-4
             label.form-label(for='input-nombre-negocio')
               | Nombre del negocio
             input#input-nombre-negocio.form-control(type='text' required)
           .mb-4
+            label.form-label(for='input-tipo-negocio')
+              | Tipo de negocio
+            select#input-tipo-negocio.form-select(required)
+              option(selected value='Empresa') Empresa
+              option(value='Trabajador autónomo') Trabajador autónomo
+          .mb-4
+            label.form-label(for='input-tipo-servicio')
+              | Tipo/categoría de servicio que ofrece
+            select#input-tipo-servicio.form-select(required)
+              option(selected) Seleccione una categoría
+              option(value='Limpieza') Limpieza
+              option(value='Reparación') Reparación
+              option(value='Plomería') Plomería
+              option(value='Jardinería') Jardinería
+              option(value='Electricidad') Electricidad
+              option(value='Carpinteria') Carpinteria
+              option(value='Pintura') Pintura
+              option(value='Comida') Comida
+              option(value='Niñeras') Niñeras
+              option(value='Mascotas') Mascotas
+              option(value='Herrería') Herrería
+              option(value='Cerrajería') Cerrajería
+              option(value='Mudanzas') Mudanzas
+              option(value='Autolavado') Autolavado
+          .mb-4
             label.form-label(for='input-telefono-negocio')
               | Teléfono del negocio
             input#input-telefono-negocio.form-control(type='tel' required)
+          .mb-4
+            label.form-label(for='input-domicilio-negocio')
+              | Domicilio
+            input#input-domicilio-negocio.form-control(type='text' required)
+          .mb-4
+            label.form-label(for='input-pdf-ine')
+              | INE del dueño/encargado (PDF)
+            input#input-pdf-ine.form-control.form-control-lg(type='file' accept='.pdf' required)
+          .mb-4
+            label.form-label(for='input-pdf-rfc')
+              | RFC (PDF)
+            input#input-pdf-rfc.form-control.form-control-lg(type='file' accept='.pdf' required)
+          .mb-4
+            label.form-label(for='input-pdf-comprobante')
+              | Comprobante de domicilio (PDF)
+            input#input-pdf-comprobante.form-control.form-control-lg(type='file' accept='.pdf' required)
           .mb-4
             label.form-label(for='input-correo-telefono')
               | Correo
@@ -65,12 +102,6 @@ main.mt-5
             label.form-label(for='input-confirmar-password-negocio')
               | Confirmar contraseña
             input#input-confirmar-password-negocio.form-control(type='password' required)
-          .mb-4
-            label.form-label(for='input-archivos-negocio')
-              | Documentos (PDF)
-            input#input-archivos-negocio.form-control.form-control-lg(type='file' aria-describedby='descripcion-archivos-negocio' multiple='3' accept='.pdf' required)
-            #descripcion-archivos-negocio.form-text
-              | INE, RFC y comprobante de domicilio del encargado/dueño
           button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
             i.bi.bi-box-arrow-in-right.me-2
             | Crear
