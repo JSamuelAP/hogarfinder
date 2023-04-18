@@ -12,6 +12,10 @@ export const getNegocio = async (req, res) => {
 		.request()
 		.input("id", id)
 		.query(queries.getServiciosDeNegocio);
+	const comentarios = await pool
+		.request()
+		.input("id", id)
+		.query(queries.getComentarios);
 
 	servicios.recordset.forEach((servicio) => {
 		servicio.Fecha_creacion = moment(servicio.Fecha_creacion)
@@ -23,6 +27,7 @@ export const getNegocio = async (req, res) => {
 		title: negocio.recordset[0].Nombre_negocio,
 		negocio: negocio.recordset[0],
 		servicios: servicios.recordset,
+		comentarios: comentarios.recordset,
 	});
 };
 

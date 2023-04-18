@@ -8,4 +8,6 @@ export const queries = {
 		"SELECT s.*, n.Nombre_negocio, n.Telefono_Negocio FROM [HogarFinder].[dbo].[publicacion] s INNER JOIN [HogarFinder].[dbo].[Negocio] n ON s.ID_Negocio = n.ID_Negocio WHERE ID_Post = @id",
 	getNegocio:
 		"SELECT * FROM [HogarFinder].[dbo].[Negocio] WHERE ID_Negocio = @id",
+	getComentarios:
+		"SELECT c.*, u.foto, CONCAT(TRIM(u.Nombre), ' ', u.Apellido) AS nombre_cliente FROM [HogarFinder].[dbo].[Calificacion] c INNER JOIN [HogarFinder].[dbo].[Cliente] u ON c.ID_Cliente = u.ID_Cliente WHERE c.ID_Negocio = @id;",
 };
