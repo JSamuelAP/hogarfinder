@@ -2,6 +2,8 @@
 export const queries = {
 	getServicios:
 		"SELECT s.*, n.Nombre_negocio FROM [HogarFinder].[dbo].[publicacion] s INNER JOIN [HogarFinder].[dbo].[Negocio] n ON s.ID_Negocio = n.ID_Negocio",
+	getServiciosDeNegocio:
+		"SELECT ID_Post, Titulo, foto, Fecha_creacion FROM  [HogarFinder].[dbo].[publicacion] where ID_Negocio = @id",
 	getServicio:
 		"SELECT s.*, n.Nombre_negocio, n.Telefono_Negocio FROM [HogarFinder].[dbo].[publicacion] s INNER JOIN [HogarFinder].[dbo].[Negocio] n ON s.ID_Negocio = n.ID_Negocio WHERE ID_Post = @id",
 	getNegocio:

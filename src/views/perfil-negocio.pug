@@ -43,33 +43,16 @@ main.mt-5
             i.bi.bi-plus-lg.me-1
             | Crear publicación
         div
-          article.mb-2
-            a.card.text-decoration-none.text-reset(href='/servicio/1')
-              .d-flex
-                div
-                  img.rounded-start(src='https://placehold.co/100/skyblue/white' alt='Negocio')
-                div
-                  .card-body
-                    h5.card-title Nombre de la publicación
-                    p.text-muted.fs-6.mb-0 7/04/2023
-          article.mb-2
-            a.card.text-decoration-none.text-reset(href='/servicio/2')
-              .d-flex
-                div
-                  img.rounded-start(src='https://placehold.co/100/skyblue/white' alt='Negocio')
-                div
-                  .card-body
-                    h5.card-title Nombre de la publicación
-                    p.text-muted.fs-6.mb-0 7/04/2023
-          article.mb-2
-            a.card.text-decoration-none.text-reset(href='/servicio/3')
-              .d-flex
-                div
-                  img.rounded-start(src='https://placehold.co/100/skyblue/white' alt='Negocio')
-                div
-                  .card-body
-                    h5.card-title Nombre de la publicación
-                    p.text-muted.fs-6.mb-0 7/04/2023
+          each servicio in servicios
+            article.mb-2
+              a.card.text-decoration-none.text-reset(href='/servicio/' + servicio.ID_Post)
+                .d-flex
+                  div
+                    img.rounded-start(src='https://placehold.co/100/skyblue/white' alt='Negocio')
+                  div
+                    .card-body
+                      h5.card-title #{servicio.Titulo}
+                      p.text-muted.fs-6.mb-0 #{servicio.Fecha_creacion}
       section.col-12.col-md-4.col-lg-6.col-xl-4
         h3.mb-3.fw-bold Opiniones
         .mb-2
