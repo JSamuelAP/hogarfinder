@@ -2,7 +2,16 @@ import { getConnection, sql, queries } from "../database";
 
 export const getNegocio = async (req, res) => {
 	const id = req.params.id;
-	res.render("perfil-negocio", { title: `Nombre del negocio ${id}`, id });
+	const pool = await getConnection();
+	const negocio = await pool
+		.request()
+		.input("id", id)
+		.query(queries.getNegocio);
+
+	res.render("perfil-negocio", {
+		title: negocio.recordset[0].Nombre_negocio,
+		negocio: negocio.recordset[0],
+	});
 };
 
 export const renderEditarNegocio = async (req, res) => {
