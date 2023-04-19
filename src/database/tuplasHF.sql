@@ -36,11 +36,16 @@ insert into Calificacion values (4,4,4, 4, 'me agrado el servicio ofrecido')
 insert into Calificacion values(5,5,5, 5, 'Lo volveria a contratar')
 
 
-insert into Negocios_Favoritos values(1,3)
-insert into Negocios_Favoritos values(2,4)
-insert into Negocios_Favoritos values(3,1)
+insert into Negocios_Favoritos values(1, 3)
+insert into Negocios_Favoritos values(2, 4)
+insert into Negocios_Favoritos values(3, 1)
 insert into Negocios_Favoritos values(4, 2)
 insert into Negocios_Favoritos values(5, 5)
+insert into Negocios_Favoritos values(1, 1)
+insert into Negocios_Favoritos values(2, 5)
+insert into Negocios_Favoritos values(3, 3)
+insert into Negocios_Favoritos values(4, 4)
+insert into Negocios_Favoritos values(5, 2)
 
 
 insert into Solicitud (ID_solicitud,ID_Negocio,Estado) values(1,1, 'PENDIENDTE')

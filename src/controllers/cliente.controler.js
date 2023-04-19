@@ -17,10 +17,15 @@ export const getCliente = async (req, res) => {
 		.request()
 		.input("id", id)
 		.query(queries.getCliente);
+	const negociosFavoritos = await pool
+		.request()
+		.input("id", id)
+		.query(queries.getNegociosFavoritos);
 
 	res.render("perfil", {
 		title: cliente.recordset[0].Nombre,
 		cliente: cliente.recordset[0],
+		negociosFavoritos: negociosFavoritos.recordset,
 	});
 };
 
