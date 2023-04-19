@@ -12,7 +12,16 @@ export const getClientes = async (req, res) => {
 
 export const getCliente = async (req, res) => {
 	const id = req.params.id;
-	res.render("perfil", { title: `Nombre del cliente ${id}`, id });
+	const pool = await getConnection();
+	const cliente = await pool
+		.request()
+		.input("id", id)
+		.query(queries.getCliente);
+
+	res.render("perfil", {
+		title: cliente.recordset[0].Nombre,
+		cliente: cliente.recordset[0],
+	});
 };
 
 export const renderEditarCliente = async (req, res) => {

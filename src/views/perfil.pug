@@ -11,7 +11,7 @@ header
             a.nav-link.active(aria-current='page' href='/')
               | Buscar
           li.nav-item
-            a.nav-link(href='/perfil/' + id) Perfil
+            a.nav-link(href='/perfil/' + cliente.ID_Cliente) Perfil
           li.nav-item
             a.nav-link(href='/') Cerrar sesión
 main.mt-5
@@ -19,7 +19,7 @@ main.mt-5
     section.row.gy-3.align-items-center.mb-5
       .col-12.col-sm-8.col-md-9.col-xl-10.d-flex.align-items-center
         img.rounded-circle.me-3(src='https://placehold.co/100/skyblue/white' alt='Usuario')
-        h1 Nombre del cliente #{id}
+        h1 #{cliente.Nombre}
       .col-12.col-sm-4.col-md-3.col-xl-2.text-center
         a.btn.btn-info.btn-lg.text-white(href='/editar-perfil' role='button')
           <i class="bi bi-pencil-square"></i>
@@ -28,13 +28,13 @@ main.mt-5
       section.col-12.col-md-6
         h3.mb-3.fw-bold Información
         p.text-muted.fs-5
-          | Correo:
-          span.text-body ejemplo@gmail.com
-        p.text-muted.fs-5
-          | Teléfono:
-          span.text-body 4779999999
+          i.bi.bi-envelope-fill
+          |  Correo:&nbsp;
+          span.text-body #{cliente.Correo_Electronico}
       section.col-12.col-md-6
-        h3.mb-3.fw-bold Negocios favoritos
+        h3.mb-3.fw-bold
+          | Negocios favoritos&nbsp;
+          i.bi.bi-heart-fill
         div
           article.mb-2
             a.card.text-decoration-none.text-reset(href='/perfil-negocio/1')
