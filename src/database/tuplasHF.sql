@@ -22,6 +22,12 @@ insert into Negocio (ID_Negocio,Nombre_negocio,Correo_Electronico, Contraseña, T
 5, 'Jardineria ProHogar', 'jardineria_prohogar@gmail.com','Negocio_246', '4778029482', 'LAZARO CARDENAS NO. 2471', 'JARDINERIA')
 
 
+UPDATE Negocio SET Tipo_Negocio = 'Empresa' WHERE ID_Negocio = 1;
+UPDATE Negocio SET Tipo_Negocio = 'Trabajador autónomo' WHERE ID_Negocio = 2;
+UPDATE Negocio SET Tipo_Negocio = 'Empresa' WHERE ID_Negocio = 3;
+UPDATE Negocio SET Tipo_Negocio = 'Trabajador autónomo' WHERE ID_Negocio = 4;
+UPDATE Negocio SET Tipo_Negocio = 'Empresa' WHERE ID_Negocio = 5;
+
 insert into Administrador values(1, 'Jose Samuel', 'Aldana', 'josesamuel@gmail.com', 'Admin_1234')
 insert into Administrador values(2, 'Jessica', 'Jantes', 'jesicajantes@gmail.com', 'Admin_123')
 insert into Administrador values(3, 'Mauricio', 'Vela', 'maurixiovela@gmail.com', 'Admin_123')
@@ -48,11 +54,11 @@ insert into Negocios_Favoritos values(4, 4)
 insert into Negocios_Favoritos values(5, 2)
 
 
-insert into Solicitud (ID_solicitud,ID_Negocio,Estado) values(1,1, 'PENDIENDTE')
-insert into Solicitud (ID_solicitud,ID_Negocio,Estado) values(2,2, 'APROBADO')
-insert into Solicitud (ID_solicitud,ID_Negocio,Estado) values(3,3, 'PENDIENDTE')
-insert into Solicitud (ID_solicitud,ID_Negocio,Estado) values(4,4, 'APROBADO')
-insert into Solicitud (ID_solicitud,ID_Negocio,Estado) values(5,5, 'PENDIENDTE')
+insert into Solicitud (ID_solicitud,ID_Negocio,Estado) values(1,1, 'En revisión')
+insert into Solicitud (ID_solicitud,ID_Negocio,Estado) values(2,2, 'Aceptada')
+insert into Solicitud (ID_solicitud,ID_Negocio,Estado) values(3,3, 'Rechazada')
+insert into Solicitud (ID_solicitud,ID_Negocio,Estado) values(4,4, 'En revisión')
+insert into Solicitud (ID_solicitud,ID_Negocio,Estado) values(5,5, 'En revisión')
 
 
 INSERT INTO publicacion (ID_Post, ID_Negocio, Titulo, Descripcion, Fecha_creacion, precio) VALUES

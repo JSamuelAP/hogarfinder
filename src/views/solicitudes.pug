@@ -30,33 +30,34 @@ main.mt-5
             th(scope='col') Tipo de negocio
             th(scope='col').text-center INE
             th(scope='col').text-center RFC
-            th(scope='col').text-center Compr. Domicilio
+            th(scope='col').text-center C.D.
             th(scope='col' style='min-width: 150px') Estado
         tbody
-          tr
-            th(scope='row') Nombre del negocio
-            td
-              a.btn.btn-info.btn-sm.text-white(href='' role='button')
-                i.bi.bi-telephone-fill.me-1
-                | &nbsp;477-999-9999
-            td
-              | Priv. Tecnologico S/n, Industrial Julian de Obregon, 37290
-            td
-              | Trabajador autónomo
-            td.text-center
-              a.link-dark.fs-1(href='archivo.pdf')
-                i.bi.bi-file-earmark-pdf
-            td.text-center
-              a.link-dark.fs-1(href='archivo.pdf')
-                i.bi.bi-file-earmark-pdf
-            td.text-center
-              a.link-dark.fs-1(href='archivo.pdf')
-                i.bi.bi-file-earmark-pdf
-            td
-              select.form-select
-                option(value='1' selected='') En revisión
-                option.text-success(value='2') Aceptada
-                option.text-danger(value='3') Rechazada
+          each solicitud in solicitudes
+            tr
+              th(scope='row') #{solicitud.Nombre_negocio}
+              td.text-center
+                a.btn.btn-info.btn-sm.text-white(href='' role='button')
+                  i.bi.bi-telephone-fill.me-1
+                  | &nbsp;#{solicitud.Telefono_Negocio}
+              td
+                | #{solicitud.Domicilio}
+              td
+                | #{solicitud.Tipo_Negocio}
+              td.text-center
+                a.link-dark.fs-1(href='archivo.pdf')
+                  i.bi.bi-file-earmark-pdf
+              td.text-center
+                a.link-dark.fs-1(href='archivo.pdf')
+                  i.bi.bi-file-earmark-pdf
+              td.text-center
+                a.link-dark.fs-1(href='archivo.pdf')
+                  i.bi.bi-file-earmark-pdf
+              td
+                select.form-select.border-2(class=(solicitud.Estado === 'En revisión' ? 'border-warning' : solicitud.Estado === 'Aceptada' ? 'border-success' : 'border-danger'))
+                  option(value='En revisión' selected=(solicitud.Estado === 'En revisión')) En revisión
+                  option.text-success(value='Aceptada' selected=(solicitud.Estado === 'Aceptada')) Aceptada
+                  option.text-danger(value='Rechazada' selected=(solicitud.Estado === 'Rechazada')) Rechazada
     .text-end
       button.btn.btn-info.btn-lg.text-white(type='button')
         i.bi.bi-save.me-1
