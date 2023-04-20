@@ -25,9 +25,9 @@ main.mt-5
               | Nombre
             input#input-nombre-cliente.form-control(type='text' value='Nombre actual del cliente')
           .mb-4
-            label.form-label(for='input-telefono-cliente')
-              | Teléfono
-            input#input-telefono-cliente.form-control(type='tel' value='4779999999')
+            label.form-label(for='input-apellido-cliente')
+              | Apellido
+            input#input-apellido-cliente.form-control(type='text' value='Apellido actual del cliente')
           .mb-4
             label.form-label(for='input-correo-cliente')
               | Correo
@@ -37,17 +37,17 @@ main.mt-5
               | Foto de perfil
             input#input-foto-cliente.form-control(type='file' accept='image/*')
           .mb-4
-            label.form-label(for='input-nuevo-password-cliente')
+            label.form-label(for='input-nuevo-password')
               | Nueva contraseña
-            input#input-nuevo-password-cliente.form-control(type='password')
+            input#input-nuevo-password.form-control(type='password')
           .mb-4
-            label.form-label(for='input-confirmar-nuevo-password-cliente')
+            label.form-label(for='input-confirmar-nuevo-password')
               | Confirmar nueva contraseña
-            input#input-confirmar-nuevo-password-cliente.form-control(type='password')
+            input#input-confirmar-nuevo-password.form-control(type='password' disabled)
           .mb-4
-            label.form-label(for='input-password-actual-cliente')
+            label.form-label(for='input-password-actual')
               | Contraseña actual
-            input#input-password-actual-cliente.form-control(type='password')
+            input#input-password-actual.form-control(type='password' disabled)
           button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
             i.bi.bi-arrow-counterclockwise
             | &nbsp;Actualizar

@@ -30,5 +30,8 @@ export const getCliente = async (req, res) => {
 };
 
 export const renderEditarCliente = async (req, res) => {
-	res.render("editar-perfil", { title: `Editar datos` });
+	res.render("editar-perfil", {
+		title: "Editar datos",
+		scripts: ["habilitar-nuevo-password.js"],
+	});
 };
