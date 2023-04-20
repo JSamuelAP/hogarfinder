@@ -32,7 +32,10 @@ export const getNegocio = async (req, res) => {
 };
 
 export const renderEditarNegocio = async (req, res) => {
-	res.render("editar-perfil-negocio", { title: "Editar datos" });
+	res.render("editar-perfil-negocio", {
+		title: "Editar datos",
+		scripts: ["habilitar-nuevo-password.js"],
+	});
 };
 
 export const renderReportarNegocio = async (req, res) => {
