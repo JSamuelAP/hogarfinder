@@ -3,7 +3,7 @@ use HogarFinder
 
 
 create table Cliente
-(ID_Cliente int not null, 
+(ID_Cliente int identity(1,1), 
 Nombre char(30) not null,
 Apellido char(30) not null,
 Correo_Electronico char(40) not null,
@@ -13,7 +13,7 @@ primary key ( ID_Cliente ))
 
 
 create table Negocio
-(ID_Negocio int not null,
+(ID_Negocio int identity(1,1),
 Nombre_negocio char (40) not null,
 Correo_Electronico char(40)not null,
 Contraseña char (40) not null,
@@ -26,7 +26,7 @@ primary key (ID_Negocio))
 
 
 create table Administrador
-(ID_Administrador int not null,
+(ID_Administrador int identity(1,1),
 Nombre char (30) not null,
 Apellido char (30) not null,
 Correo_Electronico char(40) not null,
@@ -35,7 +35,7 @@ primary key (ID_Administrador))
 
 
 create table Calificacion
-(Id_Calificacion int not null,
+(Id_Calificacion int identity(1,1),
 ID_Negocio int not null,
 ID_Cliente int not null,
 Puntaje int,
@@ -53,7 +53,7 @@ Foreign Key (ID_Cliente) references Cliente (ID_Cliente))
 
 
 create table Solicitud
-(ID_solicitud int not null,
+(ID_solicitud int identity(1,1),
 ID_Negocio int not null,
 Comprobante_domicilio varbinary,
 INE varbinary,
@@ -64,7 +64,7 @@ Foreign key (ID_Negocio) references Negocio (ID_Negocio))
 
 
 create table publicacion
-(ID_Post int not null,
+(ID_Post int identity(1,1),
 ID_Negocio int not null,
 Titulo char(50),
 Descripcion char (200),
