@@ -11,5 +11,8 @@ export const getSolicitudes = async (req, res) => {
 };
 
 export const getReportes = async (req, res) => {
-	res.render("reportes", { title: "Reportes" });
+	const pool = await getConnection();
+	const reportes = await pool.request().query(queries.getReportes);
+
+	res.render("reportes", { title: "Reportes", reportes: reportes.recordset });
 };

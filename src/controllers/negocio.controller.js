@@ -40,5 +40,14 @@ export const renderEditarNegocio = async (req, res) => {
 
 export const renderReportarNegocio = async (req, res) => {
 	const id = req.params.id;
-	res.render("reportar-negocio", { title: "Reportar negocio", id });
+	const pool = await getConnection();
+	const negocio = await pool
+		.request()
+		.input("id", id)
+		.query(queries.getNegocio);
+
+	res.render("reportar-negocio", {
+		title: "Reportar negocio",
+		negocio: negocio.recordset[0],
+	});
 };

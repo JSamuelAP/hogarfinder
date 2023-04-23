@@ -24,43 +24,20 @@ main.mt-5
       table.table.table-bordered
         thead
           tr
-            th(scope='col' style='min-width: 150px') Cliente
-            th(scope='col' style='min-width: 150px') Teléfono cliente
-            th(scope='col' style='min-width: 150px') Negocio reportado
+            th(scope='col') Cliente
+            th(scope='col' style='') Correo cliente
+            th(scope='col' style='') Negocio reportado
             th(scope='col' style='min-width: 300px') Problema descrito
         tbody
-          tr
-            th.fw-normal(scope='row') Nombre del cliente
-            td
-              a.btn.btn-info.btn-sm.text-white(href='' role='button')
-                i.bi.bi-telephone-fill.me-1
-                | &nbsp;477-999-9999
-            td
-              a(href="/perfil-negocio/2").link-dark Nombre del negocio
-            td
-              p
-                | Quejas o problemas que el cliente tiene sobre el negocio y se lo desea dar a conocer a los administradores.
-          tr
-            th.fw-normal(scope='row') Nombre del cliente
-            td
-              a.btn.btn-info.btn-sm.text-white(href='' role='button')
-                i.bi.bi-telephone-fill.me-1
-                | &nbsp;477-999-9999
-            td
-              a(href="/perfil-negocio/2").link-dark Nombre del negocio
-            td
-              p
-                | Quejas o problemas que el cliente tiene sobre el negocio y se lo desea dar a conocer a los administradores.
-          tr
-            th.fw-normal(scope='row') Nombre del cliente
-            td
-              a.btn.btn-info.btn-sm.text-white(href='' role='button')
-                i.bi.bi-telephone-fill.me-1
-                | &nbsp;477-999-9999
-            td
-              a(href="/perfil-negocio/2").link-dark Nombre del negocio
-            td
-              p
-                | Quejas o problemas que el cliente tiene sobre el negocio y se lo desea dar a conocer a los administradores.
+          each reporte in reportes
+            tr
+              th.fw-normal(scope='row') #{reporte.nombre_cliente}
+              td
+                a.link-dark(href='mailto:' + reporte.Correo_Electronico role='button')
+                  |#{reporte.Correo_Electronico}
+              td
+                a(href="/perfil-negocio/" + reporte.ID_Negocio).link-dark #{reporte.Nombre_Negocio}
+              td
+                p #{reporte.problema}
 include partials/footer
 include partials/scripts

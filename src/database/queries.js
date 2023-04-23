@@ -16,4 +16,6 @@ export const queries = {
 		"SELECT nf.ID_Negocio, n.Nombre_negocio, n.foto FROM [HogarFinder].[dbo].[Negocios_Favoritos] nf INNER JOIN [HogarFinder].[dbo].[Negocio] n ON nf.ID_Negocio = n.ID_Negocio WHERE ID_Cliente = @id;",
 	getSolicitudes:
 		"SELECT n.Nombre_negocio, n.Telefono_Negocio, n.Domicilio, n.Tipo_Negocio, s.INE, s.RFC, s.Comprobante_domicilio, TRIM(s.Estado) Estado FROM [HogarFinder].[dbo].[Solicitud] s INNER JOIN [HogarFinder].[dbo].[Negocio] n ON s.ID_Negocio = n.ID_Negocio ORDER BY CASE WHEN s.Estado = 'En revisión' THEN 1 ELSE 4 END;",
+	getReportes:
+		"SELECT CONCAT(TRIM(c.Nombre), ' ', c.Apellido) AS nombre_cliente, c.Correo_Electronico, n.ID_Negocio, n.Nombre_Negocio, r.problema FROM [HogarFinder].[dbo].[reporte] r INNER JOIN [HogarFinder].[dbo].[Cliente] c ON r.ID_Cliente = c.ID_Cliente INNER JOIN [HogarFinder].[dbo].[Negocio] n ON n.ID_Negocio = r.ID_Negocio;",
 };

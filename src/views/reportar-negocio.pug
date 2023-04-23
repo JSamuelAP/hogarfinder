@@ -5,13 +5,15 @@ header
       a.navbar-brand(href='/') Logo HogarFinder
 main.mt-5
   .container.text-center
-    h1.fw-bold.mb-5 Reportar al negocio #{id}
+    h1.fw-bold.mb-5 Reportar al negocio #{negocio.Nombre_negocio}
     .row.justify-content-center
       .col-10.col-sm-8.col-lg-6.col-xl-4
         form(action='/perfil-negocio/' + id, method='POST')
           .mb-4
             label.form-label(for='input-comentario') Describe el problema
             textarea#input-comentario.form-control(rows=10)
+            .form-text.text-start
+              | Tu reporte solo será compartido con los administradores de HogarFinder
           button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
             i.bi.bi-send.me-2
             | Enviar

@@ -73,3 +73,12 @@ Fecha_creacion date,
 precio decimal,
 primary key (ID_Post),
 Foreign key (ID_Negocio) references Negocio (ID_Negocio))
+
+
+create table reporte (
+	ID_Cliente int not null,
+	ID_Negocio int not null,
+	problema varchar(200) not null,
+	Foreign key (ID_Negocio) references Negocio (ID_Negocio),
+	Foreign Key (ID_Cliente) references Cliente (ID_Cliente)
+)
