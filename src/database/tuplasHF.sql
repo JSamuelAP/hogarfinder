@@ -51,6 +51,10 @@ INSERT INTO publicacion (ID_Negocio, Titulo, Descripcion, Fecha_creacion, precio
 		   (4, 'Servicios Domésticos', 'Ofrecemos una amplia gama de servicios domésticos, desde limpieza hasta cuidado de niños y ancianos. Nos aseguramos de que tu hogar esté en buenas manos', '2020-01-24', 1800.00),
 		   (5, 'Mantenimiento de Jardines', 'Ofrecemos servicios de mantenimiento de jardines y patios para mantener su espacio al aire libre limpio y bien cuidado', '2023-04-16', 1500.00);
 
+INSERT INTO reporte
+	VALUES (1, 2, 'La empresa no llego a mi domicilio y me exigio que aun así les hiciera el deposito'),
+		   (5, 1, 'Robaron varias flores de mi jardín, segun ellos fue porque ya estaban marchitadas, y cuando se las pedí no me las devolvieron.'),
+		   (3, 3, 'Ya va dos veces que mando a reparar mi tele y lavadora y dicen que no tiene solución, contrate a otro tecnico y me los reparo sin problemas');
 
 SELECT * FROM Cliente;
 SELECT * FROM Negocio;
@@ -59,3 +63,12 @@ SELECT * FROM Calificacion;
 SELECT * FROM Negocios_Favoritos;
 SELECT * FROM Solicitud;
 SELECT * FROM publicacion;
+SELECT * FROM reporte;
+
+INSERT INTO Cliente (Nombre, Apellido, Correo_Electronico, Contraseña)
+VALUES ('Jose', 'Perez', 'jose@gmail.com', 'patito26')
+
+UPDATE Negocio SET Nombre_negocio = 'Casas y jardines' WHERE ID_Negocio = 2;
+
+DELETE FROM Solicitud WHERE ID_Solicitud = 4
+
