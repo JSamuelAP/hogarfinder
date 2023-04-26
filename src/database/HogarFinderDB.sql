@@ -39,7 +39,7 @@ create table Calificacion
 ID_Negocio int not null,
 ID_Cliente int not null,
 Puntaje int,
-Comentario char(60),
+Comentario varchar(max),
 primary key (id_calificacion),
 Foreign key (ID_Negocio) references Negocio (ID_Negocio),
 Foreign Key (ID_Cliente) references Cliente (ID_Cliente))

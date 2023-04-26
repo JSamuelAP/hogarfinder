@@ -28,6 +28,7 @@ export const getNegocio = async (req, res) => {
 		negocio: negocio.recordset[0],
 		servicios: servicios.recordset,
 		comentarios: comentarios.recordset,
+		scripts: ["validar-calificacion.js"],
 	});
 };
 
@@ -50,4 +51,25 @@ export const renderReportarNegocio = async (req, res) => {
 		title: "Reportar negocio",
 		negocio: negocio.recordset[0],
 	});
+};
+
+export const crearComentario = async (req, res) => {
+	const { puntaje, comentario } = req.body;
+	const id = req.params.id;
+
+	try {
+		const pool = await getConnection();
+		await pool
+			.request()
+			.input("ID_Negocio", sql.Int, parseInt(id))
+			.input("ID_Cliente", sql.Int, 1)
+			.input("Puntaje", sql.Int, puntaje)
+			.input("Comentario", sql.VarChar, comentario)
+			.query(queries.postCalificacion);
+
+		res.redirect("/perfil-negocio/" + id);
+	} catch (error) {
+		console.error(err);
+		res.status(500).send("Error al calificar negocio");
+	}
 };

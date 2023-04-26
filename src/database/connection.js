@@ -22,3 +22,5 @@ export async function getConnection() {
 		console.error(error);
 	}
 }
+
+export { sql };

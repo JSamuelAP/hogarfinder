@@ -63,16 +63,16 @@ main.mt-5
           i.bi.bi-star-fill.text-warning.fs-3.me-1
           i.bi.bi-star-fill.text-warning.fs-3.me-1
           i.bi.bi-star-half.text-warning.fs-3.me-1
-          | &nbsp;4.5
-        form
+          | &nbsp;
+        form#form-opiniones(action='/perfil-negocio/' + negocio.ID_Negocio, method='POST')
           .mb-2
-            label.form-label(for='exampleInputEmail1')
+            label.form-label(for='input-comentario')
               | Escribe un comentario
-            input#exampleInputEmail1.form-control(type='email')
+            input#input-comentario.form-control(type='text' name='comentario' required)
           .row.gx-1.mb-3
             .col-6
-              select.form-select
-                option(selected='') Da una calificación
+              select#select-puntaje.form-select(name='puntaje')
+                option(value='' selected='') Da una calificación
                 option(value='1') 1 Estrellas
                 option(value='2') 2 Estrellas
                 option(value='3') 3 Estrellas
