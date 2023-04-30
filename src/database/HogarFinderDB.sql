@@ -11,6 +11,8 @@ Contraseña char(30) not null,
 foto varbinary,
 primary key ( ID_Cliente ))
 
+ALTER TABLE Cliente ADD CONSTRAINT UQ_Correo UNIQUE (Correo_Electronico);
+
 
 create table Negocio
 (ID_Negocio int identity(1,1),
@@ -24,6 +26,8 @@ Tipo_servicio char (40),
 foto varbinary,
 primary key (ID_Negocio))
 
+ALTER TABLE Negocio ADD CONSTRAINT UQ_CorreoNegocio UNIQUE (Correo_Electronico);
+
 
 create table Administrador
 (ID_Administrador int identity(1,1),
@@ -33,6 +37,7 @@ Correo_Electronico char(40) not null,
 Contraseña char (30) not null,
 primary key (ID_Administrador))
 
+ALTER TABLE Administrador ADD CONSTRAINT UQ_CorreoAdmin UNIQUE (Correo_Electronico);
 
 create table Calificacion
 (Id_Calificacion int identity(1,1),
@@ -61,6 +66,8 @@ RFC varbinary,
 Estado char(30),
 primary key (ID_solicitud),
 Foreign key (ID_Negocio) references Negocio (ID_Negocio))
+
+ALTER TABLE Solicitud ADD CONSTRAINT UQ_Solicitud UNIQUE (ID_Negocio);
 
 
 create table publicacion
