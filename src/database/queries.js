@@ -20,4 +20,6 @@ export const queries = {
 		"SELECT CONCAT(TRIM(c.Nombre), ' ', c.Apellido) AS nombre_cliente, c.Correo_Electronico, n.ID_Negocio, n.Nombre_Negocio, r.problema FROM [HogarFinder].[dbo].[reporte] r INNER JOIN [HogarFinder].[dbo].[Cliente] c ON r.ID_Cliente = c.ID_Cliente INNER JOIN [HogarFinder].[dbo].[Negocio] n ON n.ID_Negocio = r.ID_Negocio;",
 	postCalificacion:
 		"INSERT INTO [HogarFinder].[dbo].[Calificacion] VALUES (@ID_Negocio, @ID_Cliente, @Puntaje, @Comentario);",
+	postReporte:
+		"INSERT INTO [HogarFinder].[dbo].[reporte] VALUES (@ID_Cliente, @ID_Negocio, @problema);",
 };

@@ -50,6 +50,7 @@ export const renderReportarNegocio = async (req, res) => {
 	res.render("reportar-negocio", {
 		title: "Reportar negocio",
 		negocio: negocio.recordset[0],
+		scripts: ["validar-reporte.js"],
 	});
 };
 
@@ -68,8 +69,28 @@ export const crearComentario = async (req, res) => {
 			.query(queries.postCalificacion);
 
 		res.redirect("/perfil-negocio/" + id);
-	} catch (error) {
+	} catch (err) {
 		console.error(err);
 		res.status(500).send("Error al calificar negocio");
+	}
+};
+
+export const crearReporte = async (req, res) => {
+	const { problema } = req.body;
+	const id = req.params.id;
+
+	try {
+		const pool = await getConnection();
+		await pool
+			.request()
+			.input("ID_Cliente", sql.Int, 1)
+			.input("ID_Negocio", sql.Int, parseInt(id))
+			.input("Problema", sql.VarChar, problema)
+			.query(queries.postReporte);
+
+		res.redirect("/perfil-negocio/" + id);
+	} catch (err) {
+		console.error(err);
+		res.status(500).send("Error al reportar el negocio");
 	}
 };
