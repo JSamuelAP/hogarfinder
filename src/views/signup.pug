@@ -16,27 +16,28 @@ main.mt-5
         label.form-check-label(for='checkbox-negocio') Negocio
     .row.justify-content-center
       .col-10.col-sm-8.col-lg-6.col-xl-4
-        form#form-cliente(action='/perfil/1' method='POST')
+        form#form-cliente(action='/signup/' method='POST')
           .mb-4
             label.form-label(for='input-nombre-cliente')
               | Nombre
-            input#input-nombre-cliente.form-control(type='text' required)
+            input#input-nombre-cliente.form-control(type='text' name='nombreCliente' required)
           .mb-4
             label.form-label(for='input-apellido-cliente')
               | Apellido
-            input#input-apellido-cliente.form-control(type='text' required)
+            input#input-apellido-cliente.form-control(type='text' name='apellidoCliente' required)
           .mb-4
             label.form-label(for='input-correo-cliente')
               | Correo
-            input#input-correo-cliente.form-control(type='email' required)
+            input#input-correo-cliente.form-control(type='email' name='emailCliente' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' required)
           .mb-4
             label.form-label(for='input-password-cliente')
               | Contraseña
-            input#input-password-cliente.form-control(type='password' required)
+            input#input-password-cliente.form-control(type='password' name='passwordCliente' required placeholder='Minimo 8 caracteres')
           .mb-4
             label.form-label(for='input-confirmar-password-cliente')
               | Confirmar contraseña
-            input#input-confirmar-password-cliente.form-control(type='password' required)
+            input#input-confirmar-password-cliente.form-control(type='password' name='confirmarPasswordCliente' required)
+          input(type='hidden' value='cliente' name='tipoCuenta')
           button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
             i.bi.bi-box-arrow-in-right.me-2
             | Crear

@@ -66,7 +66,8 @@ SELECT * FROM publicacion;
 SELECT * FROM reporte;
 
 INSERT INTO Cliente (Nombre, Apellido, Correo_Electronico, Contraseña)
-VALUES ('Jose', 'Perez', 'jose@gmail.com', 'patito26')
+OUTPUT INSERTED.ID_Cliente
+VALUES ('Jose', 'Perez', 'jose1@gmail.com', 'patito26')
 
 UPDATE Negocio SET Nombre_negocio = 'Casas y jardines' WHERE ID_Negocio = 2;
 

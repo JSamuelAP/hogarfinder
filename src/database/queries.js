@@ -22,4 +22,6 @@ export const queries = {
 		"INSERT INTO [HogarFinder].[dbo].[Calificacion] VALUES (@ID_Negocio, @ID_Cliente, @Puntaje, @Comentario);",
 	postReporte:
 		"INSERT INTO [HogarFinder].[dbo].[reporte] VALUES (@ID_Cliente, @ID_Negocio, @problema);",
+	postCliente:
+		"INSERT INTO [HogarFinder].[dbo].[Cliente] (Nombre, Apellido, Correo_Electronico, Contraseña) OUTPUT INSERTED.ID_Cliente VALUES (@Nombre, @Apellido, @Correo_Electronico, @Contraseña);",
 };
