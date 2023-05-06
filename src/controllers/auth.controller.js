@@ -28,8 +28,36 @@ export const postCuenta = async (req, res) => {
 			res.redirect("/perfil/" + nuevoCliente.recordset[0].ID_Cliente);
 		} catch (err) {
 			console.error(err);
-			res.status(500).send("Error al reportar el negocio");
+			res.status(500).send("Error al crear el cliente");
 		}
 	} else if (tipoCuenta == "negocio") {
+		const {
+			nombreNegocio,
+			tipoNegocio,
+			tipoServicio,
+			telefonoNegocio,
+			domicilioNegocio,
+			emailNegocio,
+			passwordNegocio,
+		} = req.body;
+
+		try {
+			const pool = await getConnection();
+			const nuevoNegocio = await pool
+				.request()
+				.input("Nombre_negocio", sql.Char, nombreNegocio)
+				.input("Correo_Electronico", sql.Char, emailNegocio)
+				.input("Contraseña", sql.Char, passwordNegocio)
+				.input("Telefono_Negocio", sql.VarChar, telefonoNegocio)
+				.input("Domicilio", sql.Char, domicilioNegocio)
+				.input("Tipo_Negocio", sql.Char, tipoNegocio)
+				.input("Tipo_servicio", sql.Char, tipoServicio)
+				.query(queries.postNegocio);
+
+			res.redirect("/perfil-negocio/" + nuevoNegocio.recordset[0].ID_Negocio);
+		} catch (err) {
+			console.error(err);
+			res.status(500).send("Error al crear el negocio");
+		}
 	}
 };

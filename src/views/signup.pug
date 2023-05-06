@@ -41,22 +41,22 @@ main.mt-5
           button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
             i.bi.bi-box-arrow-in-right.me-2
             | Crear
-        form#form-negocio.d-none(action='/perfil-negocio/1' method='POST')
+        form#form-negocio.d-none(action='/signup/' method='POST')
           .mb-4
             label.form-label(for='input-nombre-negocio')
               | Nombre del negocio
-            input#input-nombre-negocio.form-control(type='text' required)
+            input#input-nombre-negocio.form-control(type='text' name="nombreNegocio" required)
           .mb-4
             label.form-label(for='input-tipo-negocio')
               | Tipo de negocio
-            select#input-tipo-negocio.form-select(required)
+            select#input-tipo-negocio.form-select(name="tipoNegocio" required)
               option(selected value='Empresa') Empresa
               option(value='Trabajador autónomo') Trabajador autónomo
           .mb-4
             label.form-label(for='input-tipo-servicio')
               | Tipo/categoría de servicio que ofrece
-            select#input-tipo-servicio.form-select(required)
-              option(selected) Seleccione una categoría
+            select#input-tipo-servicio.form-select(name='tipoServicio' required)
+              option(value='' selected) Seleccione una categoría
               option(value='Limpieza') Limpieza
               option(value='Reparación') Reparación
               option(value='Plomería') Plomería
@@ -74,35 +74,36 @@ main.mt-5
           .mb-4
             label.form-label(for='input-telefono-negocio')
               | Teléfono del negocio
-            input#input-telefono-negocio.form-control(type='tel' required)
+            input#input-telefono-negocio.form-control(type='tel' name='telefonoNegocio' pattern='[0-9]{10}' required placeholder='4770000000')
           .mb-4
             label.form-label(for='input-domicilio-negocio')
               | Domicilio
-            input#input-domicilio-negocio.form-control(type='text' required)
+            input#input-domicilio-negocio.form-control(type='text' name='domicilioNegocio' required)
           .mb-4
             label.form-label(for='input-pdf-ine')
               | INE del dueño/encargado (PDF)
-            input#input-pdf-ine.form-control.form-control-lg(type='file' accept='.pdf' required)
+            input#input-pdf-ine.form-control.form-control-lg(type='file' accept='.pdf')
           .mb-4
             label.form-label(for='input-pdf-rfc')
               | RFC (PDF)
-            input#input-pdf-rfc.form-control.form-control-lg(type='file' accept='.pdf' required)
+            input#input-pdf-rfc.form-control.form-control-lg(type='file' accept='.pdf')
           .mb-4
             label.form-label(for='input-pdf-comprobante')
               | Comprobante de domicilio (PDF)
-            input#input-pdf-comprobante.form-control.form-control-lg(type='file' accept='.pdf' required)
+            input#input-pdf-comprobante.form-control.form-control-lg(type='file' accept='.pdf')
           .mb-4
-            label.form-label(for='input-correo-telefono')
+            label.form-label(for='input-correo-negocio')
               | Correo
-            input#input-correo-telefono.form-control(type='email' required)
+            input#input-correo-negocio.form-control(type='email' name='emailNegocio' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' required)
           .mb-4
             label.form-label(for='input-password-negocio')
               | Contraseña
-            input#input-password-negocio.form-control(type='password' required)
+            input#input-password-negocio.form-control(type='password' name='passwordNegocio' required placeholder='Minimo 8 caracteres')
           .mb-4
             label.form-label(for='input-confirmar-password-negocio')
               | Confirmar contraseña
-            input#input-confirmar-password-negocio.form-control(type='password' required)
+            input#input-confirmar-password-negocio.form-control(type='password' name='confirmarPasswordNegocio' required)
+          input(type='hidden' value='negocio' name='tipoCuenta')
           button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
             i.bi.bi-box-arrow-in-right.me-2
             | Crear
