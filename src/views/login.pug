@@ -8,14 +8,20 @@ main.mt-5
     h1.fw-bold.mb-5 Inicie sesión
     .row.justify-content-center
       .col-10.col-sm-8.col-lg-6.col-xl-4
-        form
+        form#form-login(action='/login/' method='POST')
+          .mb-4
+            label.form-label(for='select-tipo-cuenta') Tipo de cuenta
+            select#select-tipo-cuenta.form-select(name='tipoCuenta' required)
+              option(selected value='cliente') Cliente
+              option(value='negocio') Negocio
+              option(value='administrador') Administrador
           .mb-4
             label.form-label(for='input-correo') Correo
-            input#input-correo.form-control(type='email')
+            input#input-correo.form-control(type='email' name='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' required)
           .mb-4
             label.form-label(for='input-password')
               | Contraseña
-            input#input-password.form-control(type='password')
+            input#input-password.form-control(type='password' name='password' required)
           button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
             i.bi.bi-box-arrow-in-right.me-2
             | Log In

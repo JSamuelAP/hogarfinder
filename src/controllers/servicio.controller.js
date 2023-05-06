@@ -5,7 +5,11 @@ export const getServicios = async (req, res) => {
 	const pool = await getConnection();
 	const servicios = await pool.request().query(queries.getServicios);
 
-	res.render("index", { title: "Inicio", servicios: servicios.recordset });
+	res.render("index", {
+		title: "Inicio",
+		servicios: servicios.recordset,
+		sesion: req.session,
+	});
 };
 
 export const renderFiltros = async (req, res) => {

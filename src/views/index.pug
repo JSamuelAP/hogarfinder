@@ -10,10 +10,16 @@ header
           li.nav-item.mx-auto
             a.nav-link.active(aria-current='page' href='/')
               | Buscar
-          li.nav-item
-            a.nav-link(href='login') Iniciar sesión
-          li.nav-item
-            a.nav-link(href='signup') Crear cuenta
+          if sesion.logged
+            li.nav-item
+              a.nav-link(href='/perfil') Perfil
+            li.nav-item
+              a.nav-link(href='/logout') Cerrar sesión
+          else
+            li.nav-item
+              a.nav-link(href='/login') Iniciar sesión
+            li.nav-item
+              a.nav-link(href='/signup') Crear cuenta
 aside
   .container
     button.btn.btn-light.mt-1(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample')

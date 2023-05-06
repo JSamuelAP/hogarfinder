@@ -1,4 +1,5 @@
 import express from "express";
+import session from "express-session";
 import config from "./config";
 import authRoutes from "./routes/auth.routes";
 import clienteRoutes from "./routes/cliente.routes";
@@ -18,6 +19,13 @@ app.set("view engine", "pug");
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // Para poder recibir datos de formularios HTML
+app.use(
+	session({
+		secret: "mysecretkey_hogarfinder",
+		resave: false,
+		saveUninitialized: false,
+	})
+);
 
 app.use(authRoutes);
 app.use(clienteRoutes);

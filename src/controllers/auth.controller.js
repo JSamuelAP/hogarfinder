@@ -1,11 +1,38 @@
 import { getConnection, sql, queries } from "../database";
 
 export const renderLogin = async (req, res) => {
-	res.render("login", { title: "Iniciar sesión" });
+	if (req.session.logged) res.redirect("/");
+	else res.render("login", { title: "Iniciar sesión", scripts: ["login.js"] });
 };
 
 export const renderSignup = async (req, res) => {
 	res.render("signup", { title: "Crear cuenta", scripts: ["signup.js"] });
+};
+
+export const iniciarSesion = async (req, res) => {
+	const { tipoCuenta, email, password } = req.body;
+
+	try {
+		const pool = await getConnection();
+
+		if (tipoCuenta == "cliente") {
+			const cliente = await pool
+				.request()
+				.input("email", sql.Char, email)
+				.input("password", sql.Char, password)
+				.query(queries.getClienteSesion);
+
+			if (cliente.recordset[0]) {
+				req.session.logged = true;
+				req.session.tipoCuenta = "cliente";
+				req.session.ID_Usuario = cliente.recordset[0].ID_Cliente;
+				res.redirect("/");
+			} else console.err("Cuenta no encontrada");
+		}
+	} catch (err) {
+		console.error(err);
+		res.status(500).send("Cuenta no encontrada o datos incorrectos");
+	}
 };
 
 export const postCuenta = async (req, res) => {
@@ -60,4 +87,11 @@ export const postCuenta = async (req, res) => {
 			res.status(500).send("Error al crear el negocio");
 		}
 	}
+};
+
+export const cerrarSesion = async (req, res) => {
+	req.session.logged = false;
+	req.session.tipoCuenta = undefined;
+	req.session.ID_Usuario = undefined;
+	res.redirect("/");
 };
