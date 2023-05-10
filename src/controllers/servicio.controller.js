@@ -38,5 +38,10 @@ export const getServicio = async (req, res) => {
 };
 
 export const renderCrearPublicacion = async (req, res) => {
+	if (req.session.tipoCuenta !== "negocio") {
+		res.redirect("/");
+		return;
+	}
+
 	res.render("crear-publicacion", { title: "Crear publicación" });
 };

@@ -11,7 +11,12 @@ export const getClientes = async (req, res) => {
 };
 
 export const getCliente = async (req, res) => {
-	const id = req.params.id;
+	if (req.session.tipoCuenta !== "cliente") {
+		res.redirect("/");
+		return;
+	}
+
+	const id = req.session.ID_Usuario;
 	const pool = await getConnection();
 	const cliente = await pool
 		.request()
@@ -30,6 +35,11 @@ export const getCliente = async (req, res) => {
 };
 
 export const renderEditarCliente = async (req, res) => {
+	if (req.session.tipoCuenta !== "cliente") {
+		res.redirect("/");
+		return;
+	}
+
 	res.render("editar-perfil", {
 		title: "Editar datos",
 		scripts: ["habilitar-nuevo-password.js"],

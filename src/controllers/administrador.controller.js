@@ -1,6 +1,11 @@
 import { getConnection, sql, queries } from "../database";
 
 export const getSolicitudes = async (req, res) => {
+	if (req.session.tipoCuenta !== "administrador") {
+		res.redirect("/");
+		return;
+	}
+
 	const pool = await getConnection();
 	const solicitudes = await pool.request().query(queries.getSolicitudes);
 
@@ -11,6 +16,11 @@ export const getSolicitudes = async (req, res) => {
 };
 
 export const getReportes = async (req, res) => {
+	if (req.session.tipoCuenta !== "administrador") {
+		res.redirect("/");
+		return;
+	}
+
 	const pool = await getConnection();
 	const reportes = await pool.request().query(queries.getReportes);
 

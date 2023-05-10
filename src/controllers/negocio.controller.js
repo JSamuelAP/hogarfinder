@@ -33,6 +33,11 @@ export const getNegocio = async (req, res) => {
 };
 
 export const renderEditarNegocio = async (req, res) => {
+	if (req.session.tipoCuenta !== "negocio") {
+		res.redirect("/");
+		return;
+	}
+
 	res.render("editar-perfil-negocio", {
 		title: "Editar datos",
 		scripts: ["habilitar-nuevo-password.js"],

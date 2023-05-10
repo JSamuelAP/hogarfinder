@@ -6,7 +6,7 @@ import {
 
 const router = Router();
 
-router.get("/perfil/:id", getCliente);
+router.get("/perfil/", getCliente);
 router.get("/editar-perfil", renderEditarCliente);
 
 export default router;
