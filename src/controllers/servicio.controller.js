@@ -13,7 +13,11 @@ export const getServicios = async (req, res) => {
 };
 
 export const renderFiltros = async (req, res) => {
-	res.render("filtros", { title: "Filtros", scripts: ["filtros.js"] });
+	res.render("filtros", {
+		title: "Filtros",
+		scripts: ["filtros.js"],
+		sesion: req.session,
+	});
 };
 
 export const getServicio = async (req, res) => {
@@ -34,6 +38,7 @@ export const getServicio = async (req, res) => {
 	res.render("servicio", {
 		title: `Nombre del servicio ${id}`,
 		servicio: servicio.recordset[0],
+		sesion: req.session,
 	});
 };
 
@@ -43,5 +48,8 @@ export const renderCrearPublicacion = async (req, res) => {
 		return;
 	}
 
-	res.render("crear-publicacion", { title: "Crear publicación" });
+	res.render("crear-publicacion", {
+		title: "Crear publicación",
+		sesion: req.session,
+	});
 };

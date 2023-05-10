@@ -31,6 +31,7 @@ export const getCliente = async (req, res) => {
 		title: cliente.recordset[0].Nombre,
 		cliente: cliente.recordset[0],
 		negociosFavoritos: negociosFavoritos.recordset,
+		sesion: req.session,
 	});
 };
 
@@ -43,5 +44,6 @@ export const renderEditarCliente = async (req, res) => {
 	res.render("editar-perfil", {
 		title: "Editar datos",
 		scripts: ["habilitar-nuevo-password.js"],
+		sesion: req.session,
 	});
 };

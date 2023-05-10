@@ -1,19 +1,6 @@
 include partials/head
 header
-  nav.navbar.navbar-expand-sm.navbar-light.bg-light
-    .container
-      a.navbar-brand(href='/') HogarFinder
-      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      #navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav.mb-0.mb-lg-0.flex-fill
-          li.nav-item.mx-auto
-            a.nav-link.active(aria-current='page' href='/')
-              | Buscar
-          li.nav-item
-            a.nav-link(href='/perfil/' + cliente.ID_Cliente) Perfil
-          li.nav-item
-            a.nav-link(href='/') Cerrar sesión
+  include partials/navbar
 main.mt-5
   .container
     section.row.gy-3.align-items-center.mb-5

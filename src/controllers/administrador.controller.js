@@ -12,6 +12,7 @@ export const getSolicitudes = async (req, res) => {
 	res.render("solicitudes", {
 		title: "Solicitudes",
 		solicitudes: solicitudes.recordset,
+		sesion: req.session,
 	});
 };
 
@@ -24,5 +25,9 @@ export const getReportes = async (req, res) => {
 	const pool = await getConnection();
 	const reportes = await pool.request().query(queries.getReportes);
 
-	res.render("reportes", { title: "Reportes", reportes: reportes.recordset });
+	res.render("reportes", {
+		title: "Reportes",
+		reportes: reportes.recordset,
+		sesion: req.session,
+	});
 };

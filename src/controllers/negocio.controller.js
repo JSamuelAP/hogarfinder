@@ -29,6 +29,7 @@ export const getNegocio = async (req, res) => {
 		servicios: servicios.recordset,
 		comentarios: comentarios.recordset,
 		scripts: ["validar-calificacion.js"],
+		sesion: req.session,
 	});
 };
 
@@ -41,6 +42,7 @@ export const renderEditarNegocio = async (req, res) => {
 	res.render("editar-perfil-negocio", {
 		title: "Editar datos",
 		scripts: ["habilitar-nuevo-password.js"],
+		sesion: req.session,
 	});
 };
 
@@ -56,6 +58,7 @@ export const renderReportarNegocio = async (req, res) => {
 		title: "Reportar negocio",
 		negocio: negocio.recordset[0],
 		scripts: ["validar-reporte.js"],
+		sesion: req.session,
 	});
 };
 
