@@ -50,6 +50,27 @@ export const renderCrearPublicacion = async (req, res) => {
 
 	res.render("crear-publicacion", {
 		title: "Crear publicación",
+		scripts: ["validar-publicacion.js"],
 		sesion: req.session,
 	});
+};
+
+export const postPublicacion = async (req, res) => {
+	const { titulo, descripcion, precio } = req.body;
+
+	try {
+		const pool = await getConnection();
+		const nuevoPost = await pool
+			.request()
+			.input("ID_Negocio", sql.Int, req.session.ID_Usuario)
+			.input("Titulo", sql.Char, titulo)
+			.input("Descripcion", sql.Char, descripcion)
+			.input("Precio", sql.Decimal, precio)
+			.query(queries.postServicio);
+
+		res.redirect("/servicio/" + nuevoPost.recordset[0].ID_Post);
+	} catch (err) {
+		console.log(err);
+		res.status(500).send("Error al crear la publicacion");
+	}
 };

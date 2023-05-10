@@ -4,6 +4,7 @@ import {
 	getServicio,
 	renderFiltros,
 	renderCrearPublicacion,
+	postPublicacion,
 } from "../controllers/servicio.controller";
 
 const router = Router();
@@ -13,5 +14,6 @@ router.get("/", getServicios);
 router.get("/filtros", renderFiltros);
 router.get("/servicio/:id", getServicio);
 router.get("/crear-publicacion/", renderCrearPublicacion);
+router.post("/crear-publicacion/", postPublicacion);
 
 export default router;

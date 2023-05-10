@@ -6,21 +6,21 @@ main.mt-5
     h1.fw-bold.mb-5 Publicar servicio
     .row.justify-content-center
       .col-10.col-sm-8.col-lg-6.col-xl-4
-        form
+        form#form-post(action='/crear-publicacion' method='POST')
           .mb-4
             label.form-label(for='input-nombre-servicio')
               | Nombre del servcio
-            input#input-nombre-servicio.form-control(type='text' required='')
+            input#input-nombre-servicio.form-control(type='text' name='titulo' required)
           .mb-4
             label.form-label(for='input-descripcion-servicio')
               | Descripción
-            textarea#input-descripcion-servicio.form-control(rows='3')
+            textarea#input-descripcion-servicio.form-control(name='descripcion' rows='3' required)
           .mb-4
             label.form-label(for='input-precio-servicio')
               | Precio
             .input-group.mb-3
               span.input-group-text $
-              input#input-precio-servicio.form-control(type='number' value='0' min='0')
+              input#input-precio-servicio.form-control(type='number' name='precio' value='0' min='0' required pattern='^(0|[1-9]\d*)(\.\d+)?$')
           .mb-4
             label.form-label(for='input-img-servicio')
               | Imágen
