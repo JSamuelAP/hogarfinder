@@ -28,4 +28,8 @@ export const queries = {
 		"INSERT INTO [HogarFinder].[dbo].[Negocio] (Nombre_negocio, Correo_Electronico, Contraseña, Telefono_Negocio, Domicilio, Tipo_Negocio, Tipo_servicio) OUTPUT INSERTED.ID_Negocio VALUES (@Nombre_negocio, @Correo_Electronico, @Contraseña, @Telefono_Negocio, @Domicilio, @Tipo_Negocio, @Tipo_servicio);",
 	getClienteSesion:
 		"SELECT ID_Cliente FROM [HogarFinder].[dbo].[Cliente] WHERE Correo_Electronico = @email AND Contraseña = @password;",
+	getNegocioSesion:
+		"SELECT ID_Negocio FROM [HogarFinder].[dbo].[Negocio] WHERE Correo_Electronico = @email AND Contraseña = @password;",
+	getAdministradorSesion:
+		"SELECT ID_Administrador FROM [HogarFinder].[dbo].[Administrador] WHERE Correo_Electronico = @email AND Contraseña = @password;",
 };

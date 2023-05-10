@@ -19,6 +19,8 @@ form.addEventListener("submit", async (event) => {
 		body: JSON.stringify({ tipoCuenta, email, password }),
 	});
 
-	if (response.ok) window.location.href = "/";
-	else alert("Datos incorrectos");
+	if (response.ok) form.submit();
+	else {
+		alert("Datos incorrectos");
+	}
 });

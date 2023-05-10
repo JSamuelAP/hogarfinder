@@ -27,11 +27,36 @@ export const iniciarSesion = async (req, res) => {
 				req.session.tipoCuenta = "cliente";
 				req.session.ID_Usuario = cliente.recordset[0].ID_Cliente;
 				res.redirect("/");
-			} else console.err("Cuenta no encontrada");
+			} else res.status(404).send("Datos incorrectos");
+		} else if (tipoCuenta == "negocio") {
+			const negocio = await pool
+				.request()
+				.input("email", sql.Char, email)
+				.input("password", sql.Char, password)
+				.query(queries.getNegocioSesion);
+
+			if (negocio.recordset[0]) {
+				req.session.logged = true;
+				req.session.tipoCuenta = "negocio";
+				req.session.ID_Usuario = negocio.recordset[0].ID_Negocio;
+				res.redirect("/perfil-negocio/" + req.session.ID_Usuario);
+			} else res.status(404).send("Datos incorrectos");
+		} else if (tipoCuenta == "administrador") {
+			const admin = await pool
+				.request()
+				.input("email", sql.Char, email)
+				.input("password", sql.Char, password)
+				.query(queries.getAdministradorSesion);
+
+			if (admin.recordset[0]) {
+				req.session.logged = true;
+				req.session.tipoCuenta = "administrador";
+				req.session.ID_Usuario = admin.recordset[0].ID_Administrador;
+				res.redirect("/solicitudes/");
+			} else res.status(404).send("Datos incorrectos");
 		}
 	} catch (err) {
-		console.error(err);
-		res.status(500).send("Cuenta no encontrada o datos incorrectos");
+		res.status(500).send("Ocurrio un error al consultar el usuario");
 	}
 };
 
