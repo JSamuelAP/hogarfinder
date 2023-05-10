@@ -10,9 +10,10 @@ main.mt-5
           h1 #{negocio.Nombre_negocio}
           p.text-muted #{negocio.Tipo_servicio}
       .col-12.col-sm-4.col-md-3.col-xl-2.text-center
-        a.btn.btn-info.btn-sm.text-white.fw-bold(href='/editar-perfil-negocio' role='button')
-          <i class="bi bi-pencil-square"></i>
-          | &nbsp;Editar datos
+        if (sesion.tipoCuenta === "negocio")
+          a.btn.btn-info.btn-sm.text-white.fw-bold(href='/editar-perfil-negocio' role='button')
+            <i class="bi bi-pencil-square"></i>
+            | &nbsp;Editar datos
     section.row.gy-3.align-items-center.mb-5
       .col-12.col-md-4.col-lg-3.text-center
         a.btn.btn-info.btn-lg.text-white.d-block(href='' role='button')
@@ -22,15 +23,17 @@ main.mt-5
         i.bi.bi-geo-alt-fill
         | &nbsp;#{negocio.Domicilio}
       .col-2.col-md-1
-        button.btn(type='button')
-          i.bi.bi-heart.text-info.fs-2
+        if (sesion.tipoCuenta === 'cliente')
+          button.btn(type='button')
+            i.bi.bi-heart.text-info.fs-2
     .row.gy-4
       section.col-12.col-md-8.col-lg-6.col-xl-8
         .d-flex.justify-content-between.align-items-start
           h3.mb-3.fw-bold Publicaciones
-          a.btn.btn-info.btn-sm.text-white.fw-bold(href='/crear-publicacion' role='button')
-            i.bi.bi-plus-lg.me-1
-            | Crear publicación
+          if (sesion.tipoCuenta === "negocio")
+            a.btn.btn-info.btn-sm.text-white.fw-bold(href='/crear-publicacion' role='button')
+              i.bi.bi-plus-lg.me-1
+              | Crear publicación
         div
           each servicio in servicios
             article.mb-2
@@ -51,28 +54,31 @@ main.mt-5
           i.bi.bi-star-fill.text-warning.fs-3.me-1
           i.bi.bi-star-half.text-warning.fs-3.me-1
           | &nbsp;
-        form#form-opiniones(action='/perfil-negocio/' + negocio.ID_Negocio, method='POST')
-          .mb-2
-            label.form-label(for='input-comentario')
-              | Escribe un comentario
-            input#input-comentario.form-control(type='text' name='comentario' required)
-          .row.gx-1.mb-3
-            .col-6
-              select#select-puntaje.form-select(name='puntaje')
-                option(value='' selected='') Da una calificación
-                option(value='1') 1 Estrellas
-                option(value='2') 2 Estrellas
-                option(value='3') 3 Estrellas
-                option(value='4') 4 Estrellas
-                option(value='5') 5 Estrellas
-            .col-6
-              button.btn.btn-info.text-white.w-100(type='submit')
-                i.bi.bi-send-fill.me-1
-                | &nbsp;Enviar
-        p.text-end
-          a(href='/perfil-negocio/' + negocio.ID_Negocio + '/reportar-negocio').link-danger
-            i.bi.bi-exclamation-square-fill
-            |&nbsp;Reportar
+        if (sesion.tipoCuenta === 'cliente')
+          form#form-opiniones(action='/perfil-negocio/' + negocio.ID_Negocio, method='POST')
+            .mb-2
+              label.form-label(for='input-comentario')
+                | Escribe un comentario
+              input#input-comentario.form-control(type='text' name='comentario' required)
+            .row.gx-1.mb-3
+              .col-6
+                select#select-puntaje.form-select(name='puntaje')
+                  option(value='' selected='') Da una calificación
+                  option(value='1') 1 Estrellas
+                  option(value='2') 2 Estrellas
+                  option(value='3') 3 Estrellas
+                  option(value='4') 4 Estrellas
+                  option(value='5') 5 Estrellas
+              .col-6
+                button.btn.btn-info.text-white.w-100(type='submit')
+                  i.bi.bi-send-fill.me-1
+                  | &nbsp;Enviar
+          p.text-end
+            a(href='/perfil-negocio/' + negocio.ID_Negocio + '/reportar-negocio').link-danger
+              i.bi.bi-exclamation-square-fill
+              |&nbsp;Reportar
+        else
+          p.text-muted.mb-4 Inicia sesión como cliente para proporcionar una opinión.
         div
           each comentario in comentarios
             article.mb-4
