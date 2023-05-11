@@ -16,6 +16,10 @@ export const getNegocio = async (req, res) => {
 		.request()
 		.input("id", id)
 		.query(queries.getComentarios);
+	const puntaje = await pool
+		.request()
+		.input("ID_Negocio", id)
+		.query(queries.getPromedioCalificaciones);
 
 	servicios.recordset.forEach((servicio) => {
 		servicio.Fecha_creacion = moment(servicio.Fecha_creacion)
@@ -28,6 +32,7 @@ export const getNegocio = async (req, res) => {
 		negocio: negocio.recordset[0],
 		servicios: servicios.recordset,
 		comentarios: comentarios.recordset,
+		puntaje: puntaje.recordset[0].Promedio,
 		scripts: ["validar-calificacion.js"],
 		sesion: req.session,
 	});

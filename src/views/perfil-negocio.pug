@@ -48,12 +48,11 @@ main.mt-5
       section.col-12.col-md-4.col-lg-6.col-xl-4
         h3.mb-3.fw-bold Opiniones
         .mb-2
-          i.bi.bi-star-fill.text-warning.fs-3.me-1
-          i.bi.bi-star-fill.text-warning.fs-3.me-1
-          i.bi.bi-star-fill.text-warning.fs-3.me-1
-          i.bi.bi-star-fill.text-warning.fs-3.me-1
-          i.bi.bi-star-half.text-warning.fs-3.me-1
-          | &nbsp;
+          for i in Array(puntaje).fill()
+            i.bi.bi-star-fill.text-warning.fs-3.me-1
+          for i in Array(5 - puntaje).fill()
+            i.bi.bi-star.text-warning.fs-3.me-1
+          span.ms-1.fs-4 #{puntaje}
         if (sesion.tipoCuenta === 'cliente')
           form#form-opiniones(action='/perfil-negocio/' + negocio.ID_Negocio, method='POST')
             .mb-2
