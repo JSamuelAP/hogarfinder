@@ -47,6 +47,11 @@ export const renderEditarNegocio = async (req, res) => {
 };
 
 export const renderReportarNegocio = async (req, res) => {
+	if (req.session.tipoCuenta !== "cliente") {
+		res.redirect("/");
+		return;
+	}
+
 	const id = req.params.id;
 	const pool = await getConnection();
 	const negocio = await pool
@@ -71,14 +76,14 @@ export const crearComentario = async (req, res) => {
 		await pool
 			.request()
 			.input("ID_Negocio", sql.Int, parseInt(id))
-			.input("ID_Cliente", sql.Int, 1)
+			.input("ID_Cliente", sql.Int, req.session.ID_Usuario)
 			.input("Puntaje", sql.Int, puntaje)
 			.input("Comentario", sql.VarChar, comentario)
 			.query(queries.postCalificacion);
 
 		res.redirect("/perfil-negocio/" + id);
 	} catch (err) {
-		console.error(err);
+		console.log(err);
 		res.status(500).send("Error al calificar negocio");
 	}
 };
@@ -91,7 +96,7 @@ export const crearReporte = async (req, res) => {
 		const pool = await getConnection();
 		await pool
 			.request()
-			.input("ID_Cliente", sql.Int, 1)
+			.input("ID_Cliente", sql.Int, req.session.ID_Usuario)
 			.input("ID_Negocio", sql.Int, parseInt(id))
 			.input("Problema", sql.VarChar, problema)
 			.query(queries.postReporte);
