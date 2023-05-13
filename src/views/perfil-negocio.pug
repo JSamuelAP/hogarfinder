@@ -24,8 +24,8 @@ main.mt-5
         | &nbsp;#{negocio.Domicilio}
       .col-2.col-md-1
         if (sesion.tipoCuenta === 'cliente')
-          button.btn(type='button')
-            i.bi.bi-heart.text-info.fs-2
+          button.btn#boton-favorito(type='button' data-favorito='' + esFavorito)
+            i#boton-favorito-icono.bi.text-info.fs-2(class = esFavorito ? 'bi-heart-fill' : 'bi-heart')
     .row.gy-4
       section.col-12.col-md-8.col-lg-6.col-xl-8
         .d-flex.justify-content-between.align-items-start

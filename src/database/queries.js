@@ -36,4 +36,10 @@ export const queries = {
 		"SELECT ID_Negocio FROM [HogarFinder].[dbo].[Negocio] WHERE Correo_Electronico = @email AND Contraseña = @password;",
 	getAdministradorSesion:
 		"SELECT ID_Administrador FROM [HogarFinder].[dbo].[Administrador] WHERE Correo_Electronico = @email AND Contraseña = @password;",
+	postFavorito:
+		"INSERT INTO [HogarFinder].[dbo].[Negocios_Favoritos] VALUES (@ID_Cliente, @ID_Negocio);",
+	deleteFavorito:
+		"DELETE FROM [HogarFinder].[dbo].[Negocios_Favoritos] WHERE ID_Cliente = @ID_Cliente AND ID_Negocio = @ID_Negocio;",
+	getFavorito:
+		"SELECT * FROM [HogarFinder].[dbo].[Negocios_Favoritos] WHERE ID_Cliente = @ID_Cliente AND ID_Negocio = @ID_Negocio;",
 };

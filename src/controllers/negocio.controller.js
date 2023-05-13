@@ -21,6 +21,18 @@ export const getNegocio = async (req, res) => {
 		.input("ID_Negocio", id)
 		.query(queries.getPromedioCalificaciones);
 
+	let esFavorito = false;
+	if (req.session.tipoCuenta === "cliente") {
+		const pool = await getConnection();
+		const favorito = await pool
+			.request()
+			.input("ID_Cliente", req.session.ID_Usuario)
+			.input("ID_Negocio", id)
+			.query(queries.getFavorito);
+
+		if (favorito.recordset[0]) esFavorito = true;
+	}
+
 	servicios.recordset.forEach((servicio) => {
 		servicio.Fecha_creacion = moment(servicio.Fecha_creacion)
 			.locale("es")
@@ -33,7 +45,8 @@ export const getNegocio = async (req, res) => {
 		servicios: servicios.recordset,
 		comentarios: comentarios.recordset,
 		puntaje: puntaje.recordset[0].Promedio,
-		scripts: ["validar-calificacion.js"],
+		esFavorito,
+		scripts: ["validar-calificacion.js", "boton-favorito.js"],
 		sesion: req.session,
 	});
 };
@@ -110,5 +123,51 @@ export const crearReporte = async (req, res) => {
 	} catch (err) {
 		console.error(err);
 		res.status(500).send("Error al reportar el negocio");
+	}
+};
+
+export const marcarFavorito = async (req, res) => {
+	const id = req.params.id;
+
+	if (req.session.tipoCuenta !== "cliente" || !id) {
+		res.redirect("/");
+		return;
+	}
+
+	try {
+		const pool = await getConnection();
+		await pool
+			.request()
+			.input("ID_Cliente", req.session.ID_Usuario)
+			.input("ID_Negocio", id)
+			.query(queries.postFavorito);
+
+		res.redirect("/perfil-negocio/" + id);
+	} catch (err) {
+		console.log(err);
+		res.status(500).send("Error al marcar como favorito al negocio");
+	}
+};
+
+export const quitarFavorito = async (req, res) => {
+	const id = req.params.id;
+
+	if (req.session.tipoCuenta !== "cliente" || !id) {
+		res.redirect("/");
+		return;
+	}
+
+	try {
+		const pool = await getConnection();
+		await pool
+			.request()
+			.input("ID_Cliente", req.session.ID_Usuario)
+			.input("ID_Negocio", id)
+			.query(queries.deleteFavorito);
+
+		res.redirect("/perfil-negocio/" + id);
+	} catch (err) {
+		console.log(err);
+		res.status(500).send("Error al desmarcar como favorito al negocio");
 	}
 };

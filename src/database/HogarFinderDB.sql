@@ -56,6 +56,7 @@ ID_Negocio int not null,
 Foreign key (ID_Negocio) references Negocio (ID_Negocio),
 Foreign Key (ID_Cliente) references Cliente (ID_Cliente))
 
+ALTER TABLE Negocios_Favoritos ADD CONSTRAINT UQ_Favorito UNIQUE (ID_Cliente, ID_Negocio);
 
 create table Solicitud
 (ID_solicitud int identity(1,1),
