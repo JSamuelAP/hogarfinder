@@ -8,6 +8,11 @@ export const getNegocio = async (req, res) => {
 		.request()
 		.input("id", id)
 		.query(queries.getNegocio);
+
+	if (!negocio.recordset[0]) {
+		return res.status(404).render("404", { title: "Negocio no encontrado" });
+	}
+
 	const servicios = await pool
 		.request()
 		.input("id", id)

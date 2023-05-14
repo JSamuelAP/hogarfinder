@@ -28,6 +28,10 @@ export const getServicio = async (req, res) => {
 		.input("id", id)
 		.query(queries.getServicio);
 
+	if (!servicio.recordset[0]) {
+		return res.status(404).render("404", { title: "Servicio no encontrado" });
+	}
+
 	// Formatear la fecha a español
 	servicio.recordset[0].Fecha_creacion = moment(
 		servicio.recordset[0].Fecha_creacion
