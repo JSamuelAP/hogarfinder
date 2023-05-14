@@ -42,4 +42,8 @@ export const queries = {
 		"DELETE FROM [HogarFinder].[dbo].[Negocios_Favoritos] WHERE ID_Cliente = @ID_Cliente AND ID_Negocio = @ID_Negocio;",
 	getFavorito:
 		"SELECT * FROM [HogarFinder].[dbo].[Negocios_Favoritos] WHERE ID_Cliente = @ID_Cliente AND ID_Negocio = @ID_Negocio;",
+	getServiciosByNombre:
+		"(s.Titulo LIKE '%' + @Titulo + '%' OR s.Descripcion LIKE '%' + @Descripcion + '%')",
+	getServiciosByPrecio: "s.precio BETWEEN @precioMinimo AND @precioMaximo",
+	getServiciosByDomicilio: "n.Domicilio LIKE '%' + @Domicilio + '%'",
 };

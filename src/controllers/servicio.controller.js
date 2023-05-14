@@ -20,6 +20,46 @@ export const renderFiltros = async (req, res) => {
 	});
 };
 
+export const getServiciosFiltrados = async (req, res) => {
+	const {
+		checkboxNombre,
+		nombre,
+		checkboxPrecio,
+		precioMinimo,
+		precioMaximo,
+		checkboxUbicacion,
+		ubicacion,
+	} = req.body;
+	let consulta = queries.getServicios + " WHERE ";
+
+	if (checkboxNombre) {
+		consulta += queries.getServiciosByNombre;
+		if (checkboxPrecio) consulta += " AND " + queries.getServiciosByPrecio;
+		if (checkboxUbicacion)
+			consulta += " AND " + queries.getServiciosByDomicilio;
+	} else if (checkboxPrecio) {
+		consulta += queries.getServiciosByPrecio;
+		if (checkboxUbicacion)
+			consulta += " AND " + queries.getServiciosByDomicilio;
+	} else if (checkboxUbicacion) consulta += queries.getServiciosByDomicilio;
+
+	const pool = await getConnection();
+	const servicios = await pool
+		.request()
+		.input("Titulo", sql.Char, nombre)
+		.input("Descripcion", sql.Char, nombre)
+		.input("precioMinimo", sql.Decimal, precioMinimo)
+		.input("precioMaximo", sql.Decimal, precioMaximo)
+		.input("Domicilio", sql.Char, ubicacion)
+		.query(consulta);
+
+	res.render("index", {
+		title: "Inicio",
+		servicios: servicios.recordset,
+		sesion: req.session,
+	});
+};
+
 export const getServicio = async (req, res) => {
 	const id = req.params.id;
 	const pool = await getConnection();
