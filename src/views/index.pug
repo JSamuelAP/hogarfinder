@@ -12,45 +12,47 @@ aside
       button.btn-close.text-reset(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
     .offcanvas-body
       .list-group.list-group-flush
-        a.list-group-item.list-group-item-action(href='/limpieza')
+        a.list-group-item.list-group-item-action(href='/categoria/limpieza')
           | Limpieza
-        a.list-group-item.list-group-item-action(href='/reparacion')
+        a.list-group-item.list-group-item-action(href='/categoria/reparacion')
           | Reparación
-        a.list-group-item.list-group-item-action(href='/plomeria')
+        a.list-group-item.list-group-item-action(href='/categoria/plomeria')
           | Plomería
-        a.list-group-item.list-group-item-action(href='/jardineria')
+        a.list-group-item.list-group-item-action(href='/categoria/jardineria')
           | Jardinería
-        a.list-group-item.list-group-item-action(href='/electricidad')
+        a.list-group-item.list-group-item-action(href='/categoria/electricidad')
           | Electricidad
-        a.list-group-item.list-group-item-action(href='/carpinteria')
+        a.list-group-item.list-group-item-action(href='/categoria/carpinteria')
           | Carpinteria
-        a.list-group-item.list-group-item-action(href='/pintura')
+        a.list-group-item.list-group-item-action(href='/categoria/pintura')
           | Pintura
-        a.list-group-item.list-group-item-action(href='/comida')
+        a.list-group-item.list-group-item-action(href='/categoria/comida')
           | Comida
-        a.list-group-item.list-group-item-action(href='/niñeras')
+        a.list-group-item.list-group-item-action(href='/categoria/niñeras')
           | Niñeras
-        a.list-group-item.list-group-item-action(href='/mascotas')
+        a.list-group-item.list-group-item-action(href='/categoria/mascotas')
           | Mascotas
-        a.list-group-item.list-group-item-action(href='/herreria')
+        a.list-group-item.list-group-item-action(href='/categoria/herreria')
           | Herrería
-        a.list-group-item.list-group-item-action(href='/cerrajeria')
+        a.list-group-item.list-group-item-action(href='/categoria/cerrajeria')
           | Cerrajería
-        a.list-group-item.list-group-item-action(href='/mudanzas')
+        a.list-group-item.list-group-item-action(href='/categoria/mudanzas')
           | Mudanzas
-        a.list-group-item.list-group-item-action(href='/autolavado')
+        a.list-group-item.list-group-item-action(href='/categoria/autolavado')
           | Autolavado
 main
   .container
     .d-flex.justify-content-between.mt-4
       h1.fw-bold Resultados
-      a.btn.btn-info.btn-lg.text-white(href='filtros' role='button')
+      a.btn.btn-info.btn-lg.text-white(href='/filtros' role='button')
         i.bi.bi-funnel-fill.me-2
         | Filtros
     .mt-4.row.g-3
+      if servicios.length === 0
+        p.text-center.my-5.fs-2.text-secondary Lo sentimos, no hay servicios que coincidan con tu busqueda.
       each servicio in servicios
         article.col-12.col-lg-6
-          a.card.text-decoration-none.text-reset(href='servicio/' + servicio.ID_Post)
+          a.card.text-decoration-none.text-reset(href='/servicio/' + servicio.ID_Post)
             .d-flex.flex-column.flex-sm-row
               .d-flex.d-sm-block
                 img.rounded-start.col(src='https://placehold.co/200/skyblue/white' alt='Servicio')
