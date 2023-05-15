@@ -46,4 +46,5 @@ export const queries = {
 		"(s.Titulo LIKE '%' + @Titulo + '%' OR s.Descripcion LIKE '%' + @Descripcion + '%')",
 	getServiciosByPrecio: "s.precio BETWEEN @precioMinimo AND @precioMaximo",
 	getServiciosByDomicilio: "n.Domicilio LIKE '%' + @Domicilio + '%'",
+	getServiciosByCategoria: "n.Tipo_servicio = @categoria",
 };

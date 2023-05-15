@@ -60,6 +60,22 @@ export const getServiciosFiltrados = async (req, res) => {
 	});
 };
 
+export const getServiciosPorCategoria = async (req, res) => {
+	const consulta =
+		queries.getServicios + " WHERE " + queries.getServiciosByCategoria;
+	const pool = await getConnection();
+	const servicios = await pool
+		.request()
+		.input("categoria", req.params.categoria)
+		.query(consulta);
+
+	res.render("index", {
+		title: "Inicio",
+		servicios: servicios.recordset,
+		sesion: req.session,
+	});
+};
+
 export const getServicio = async (req, res) => {
 	const id = req.params.id;
 	const pool = await getConnection();

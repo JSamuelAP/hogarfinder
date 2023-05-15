@@ -6,6 +6,7 @@ import {
 	renderCrearPublicacion,
 	postPublicacion,
 	getServiciosFiltrados,
+	getServiciosPorCategoria,
 } from "../controllers/servicio.controller";
 
 const router = Router();
@@ -13,6 +14,7 @@ const router = Router();
 // Al entrar a la ruta /clientes, ejecutar getClientes()
 router.get("/", getServicios);
 router.post("/", getServiciosFiltrados);
+router.get("/:categoria", getServiciosPorCategoria);
 router.get("/filtros", renderFiltros);
 router.get("/servicio/:id", getServicio);
 router.get("/crear-publicacion/", renderCrearPublicacion);
