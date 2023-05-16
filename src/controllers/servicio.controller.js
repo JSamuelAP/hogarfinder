@@ -117,6 +117,7 @@ export const renderCrearPublicacion = async (req, res) => {
 
 export const postPublicacion = async (req, res) => {
 	const { titulo, descripcion, precio } = req.body;
+	console.log(req.file, req.body);
 
 	try {
 		const pool = await getConnection();
