@@ -117,7 +117,7 @@ export const renderCrearPublicacion = async (req, res) => {
 
 export const postPublicacion = async (req, res) => {
 	const { titulo, descripcion, precio } = req.body;
-	console.log(req.file, req.body);
+	const { filename } = req.file;
 
 	try {
 		const pool = await getConnection();
@@ -127,6 +127,7 @@ export const postPublicacion = async (req, res) => {
 			.input("Titulo", sql.Char, titulo)
 			.input("Descripcion", sql.Char, descripcion)
 			.input("Precio", sql.Decimal, precio)
+			.input("foto", sql.Char, filename)
 			.query(queries.postServicio);
 
 		res.redirect("/servicio/" + nuevoPost.recordset[0].ID_Post);

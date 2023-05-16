@@ -27,7 +27,7 @@ foto varbinary,
 primary key (ID_Negocio))
 
 ALTER TABLE Negocio ADD CONSTRAINT UQ_CorreoNegocio UNIQUE (Correo_Electronico);
-
+ALTER TABLE Negocio ALTER COLUMN foto char(25);
 
 create table Administrador
 (ID_Administrador int identity(1,1),
@@ -81,6 +81,8 @@ Fecha_creacion date,
 precio decimal,
 primary key (ID_Post),
 Foreign key (ID_Negocio) references Negocio (ID_Negocio))
+
+ALTER TABLE publicacion ALTER COLUMN foto char(25);
 
 
 create table reporte (

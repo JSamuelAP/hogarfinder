@@ -27,6 +27,7 @@ app.use(
 	})
 );
 
+// Rutas
 app.use(authRoutes);
 app.use(clienteRoutes);
 app.use(negocioRoutes);

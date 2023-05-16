@@ -55,7 +55,8 @@ main
           a.card.text-decoration-none.text-reset(href='/servicio/' + servicio.ID_Post)
             .d-flex.flex-column.flex-sm-row
               .d-flex.d-sm-block
-                img.rounded-start.col(src='https://placehold.co/200/skyblue/white' alt='Servicio')
+                .servicio-thumbnail-200
+                  img.rounded-start.col(src=(servicio.foto ? '/images/' + servicio.foto : 'https://placehold.co/200/skyblue/white') alt='Servicio')
               div
                 .card-body
                   h5.card-title.fw-bold #{servicio.Titulo}
