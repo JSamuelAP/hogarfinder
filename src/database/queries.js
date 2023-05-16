@@ -30,6 +30,8 @@ export const queries = {
 		"INSERT INTO [HogarFinder].[dbo].[Cliente] (Nombre, Apellido, Correo_Electronico, Contraseña) OUTPUT INSERTED.ID_Cliente VALUES (@Nombre, @Apellido, @Correo_Electronico, @Contraseña);",
 	postNegocio:
 		"INSERT INTO [HogarFinder].[dbo].[Negocio] (Nombre_negocio, Correo_Electronico, Contraseña, Telefono_Negocio, Domicilio, Tipo_Negocio, Tipo_servicio) OUTPUT INSERTED.ID_Negocio VALUES (@Nombre_negocio, @Correo_Electronico, @Contraseña, @Telefono_Negocio, @Domicilio, @Tipo_Negocio, @Tipo_servicio);",
+	PostSolicitud:
+		"INSERT INTO [HogarFinder].[dbo].[Solicitud] (ID_Negocio, Comprobante_domicilio, INE, RFC, Estado) VALUES (@ID_Negocio, @Comprobante, @INE, @RFC, 'En revisión');",
 	getClienteSesion:
 		"SELECT ID_Cliente FROM [HogarFinder].[dbo].[Cliente] WHERE Correo_Electronico = @email AND Contraseña = @password;",
 	getNegocioSesion:

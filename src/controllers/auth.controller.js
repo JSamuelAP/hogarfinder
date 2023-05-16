@@ -106,6 +106,14 @@ export const postCuenta = async (req, res) => {
 				.input("Tipo_servicio", sql.Char, tipoServicio)
 				.query(queries.postNegocio);
 
+			const solicitud = await pool
+				.request()
+				.input("ID_Negocio", sql.Int, nuevoNegocio.recordset[0].ID_Negocio)
+				.input("INE", sql.Char, req.files["ine"][0].filename)
+				.input("RFC", sql.Char, req.files["rfc"][0].filename)
+				.input("Comprobante", sql.Char, req.files["comprobante"][0].filename)
+				.query(queries.PostSolicitud);
+
 			res.redirect("/perfil-negocio/" + nuevoNegocio.recordset[0].ID_Negocio);
 		} catch (err) {
 			console.error(err);

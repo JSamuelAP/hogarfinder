@@ -30,13 +30,13 @@ main.mt-5
               td
                 | #{solicitud.Tipo_Negocio}
               td.text-center
-                a.link-dark.fs-1(href='archivo.pdf')
+                a.link-dark.fs-1(href='/pdf/' + solicitud.INE target='_blank')
                   i.bi.bi-file-earmark-pdf
               td.text-center
-                a.link-dark.fs-1(href='archivo.pdf')
+                a.link-dark.fs-1(href='/pdf/' + solicitud.RFC target='_blank')
                   i.bi.bi-file-earmark-pdf
               td.text-center
-                a.link-dark.fs-1(href='archivo.pdf')
+                a.link-dark.fs-1(href='/pdf/' + solicitud.Comprobante_domicilio target='_blank')
                   i.bi.bi-file-earmark-pdf
               td
                 select.form-select.border-2(class=(solicitud.Estado === 'En revisión' ? 'border-warning' : solicitud.Estado === 'Aceptada' ? 'border-success' : 'border-danger'))

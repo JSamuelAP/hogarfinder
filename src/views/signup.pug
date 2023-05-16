@@ -41,7 +41,7 @@ main.mt-5
           button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
             i.bi.bi-box-arrow-in-right.me-2
             | Crear
-        form#form-negocio.d-none(action='/signup/' method='POST')
+        form#form-negocio.d-none(action='/signup/' method='POST' enctype="multipart/form-data")
           .mb-4
             label.form-label(for='input-nombre-negocio')
               | Nombre del negocio
@@ -82,15 +82,15 @@ main.mt-5
           .mb-4
             label.form-label(for='input-pdf-ine')
               | INE del dueño/encargado (PDF)
-            input#input-pdf-ine.form-control.form-control-lg(type='file' accept='.pdf')
+            input#input-pdf-ine.form-control.form-control-lg(type='file' name='ine' accept='.pdf' required)
           .mb-4
             label.form-label(for='input-pdf-rfc')
               | RFC (PDF)
-            input#input-pdf-rfc.form-control.form-control-lg(type='file' accept='.pdf')
+            input#input-pdf-rfc.form-control.form-control-lg(type='file' name='rfc' accept='.pdf' required)
           .mb-4
             label.form-label(for='input-pdf-comprobante')
               | Comprobante de domicilio (PDF)
-            input#input-pdf-comprobante.form-control.form-control-lg(type='file' accept='.pdf')
+            input#input-pdf-comprobante.form-control.form-control-lg(type='file' name='comprobante' accept='.pdf' required)
           .mb-4
             label.form-label(for='input-correo-negocio')
               | Correo

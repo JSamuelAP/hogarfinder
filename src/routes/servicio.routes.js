@@ -1,5 +1,5 @@
 import { Router } from "express";
-import upload from "../middlewares/multer";
+import { uploadImg } from "../middlewares/multer";
 import {
 	getServicios,
 	getServicio,
@@ -19,6 +19,6 @@ router.get("/categoria/:categoria", getServiciosPorCategoria);
 router.get("/filtros", renderFiltros);
 router.get("/servicio/:id", getServicio);
 router.get("/crear-publicacion/", renderCrearPublicacion);
-router.post("/crear-publicacion/", upload.single("image"), postPublicacion);
+router.post("/crear-publicacion/", uploadImg.single("image"), postPublicacion);
 
 export default router;
