@@ -7,7 +7,7 @@ export const queries = {
 	getServicio:
 		"SELECT s.*, n.Nombre_negocio, n.Telefono_Negocio FROM [HogarFinder].[dbo].[publicacion] s INNER JOIN [HogarFinder].[dbo].[Negocio] n ON s.ID_Negocio = n.ID_Negocio WHERE ID_Post = @id",
 	getNegocio:
-		"SELECT * FROM [HogarFinder].[dbo].[Negocio] WHERE ID_Negocio = @id",
+		"SELECT n.*, TRIM(s.Estado) Estado FROM [HogarFinder].[dbo].[Negocio] n INNER JOIN [HogarFinder].[dbo].[Solicitud] s ON n.ID_Negocio = s.ID_Negocio WHERE n.ID_Negocio = @id",
 	getComentarios:
 		"SELECT c.*, u.foto, CONCAT(TRIM(u.Nombre), ' ', u.Apellido) AS nombre_cliente FROM [HogarFinder].[dbo].[Calificacion] c INNER JOIN [HogarFinder].[dbo].[Cliente] u ON c.ID_Cliente = u.ID_Cliente WHERE c.ID_Negocio = @id;",
 	getCliente:
@@ -35,7 +35,7 @@ export const queries = {
 	getClienteSesion:
 		"SELECT ID_Cliente FROM [HogarFinder].[dbo].[Cliente] WHERE Correo_Electronico = @email AND Contraseña = @password;",
 	getNegocioSesion:
-		"SELECT ID_Negocio FROM [HogarFinder].[dbo].[Negocio] WHERE Correo_Electronico = @email AND Contraseña = @password;",
+		"SELECT n.ID_Negocio, TRIM(s.Estado) Estado FROM [HogarFinder].[dbo].[Negocio] n INNER JOIN [HogarFinder].[dbo].[Solicitud] s ON n.ID_Negocio = s.ID_Negocio WHERE n.Correo_Electronico = @email AND n.Contraseña = @password;",
 	getAdministradorSesion:
 		"SELECT ID_Administrador FROM [HogarFinder].[dbo].[Administrador] WHERE Correo_Electronico = @email AND Contraseña = @password;",
 	postFavorito:

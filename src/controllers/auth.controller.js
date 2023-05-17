@@ -39,6 +39,7 @@ export const iniciarSesion = async (req, res) => {
 				req.session.logged = true;
 				req.session.tipoCuenta = "negocio";
 				req.session.ID_Usuario = negocio.recordset[0].ID_Negocio;
+				req.session.estadoCuenta = negocio.recordset[0].Estado;
 				res.redirect("/perfil-negocio/" + req.session.ID_Usuario);
 			} else res.status(404).send("Datos incorrectos");
 		} else if (tipoCuenta == "administrador") {

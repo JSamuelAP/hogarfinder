@@ -3,30 +3,41 @@ header
   include partials/navbar
 main.mt-5
   .container
-    section.row.gy-3.align-items-center.mb-5
-      .col-12.col-sm-8.col-md-9.col-xl-10.d-flex.align-items-center
-        img.rounded-circle.me-3(src='https://placehold.co/100/skyblue/white' alt='Usuario')
-        div
-          h1 #{negocio.Nombre_negocio}
-          p.text-muted #{negocio.Tipo_servicio}
-      .col-12.col-sm-4.col-md-3.col-xl-2.text-center
-        if (sesion.tipoCuenta === "negocio" && sesion.ID_Usuario == negocio.ID_Negocio)
-          a.btn.btn-info.btn-sm.text-white.fw-bold(href='/editar-perfil-negocio' role='button')
-            <i class="bi bi-pencil-square"></i>
-            | &nbsp;Editar datos
-    section.row.gy-3.align-items-center.mb-5
-      .col-12.col-md-4.col-lg-3.text-center
-        a.btn.btn-info.btn-lg.text-white.d-block(href='' role='button')
-          i.bi.bi-telephone-fill.me-1
-          | &nbsp;#{negocio.Telefono_Negocio}
-      .col-10.col-md-7.col-lg-8
-        i.bi.bi-geo-alt-fill
-        | &nbsp;#{negocio.Domicilio}
-      .col-2.col-md-1
-        if (sesion.tipoCuenta === 'cliente')
-          button.btn#boton-favorito(type='button' data-favorito='' + esFavorito)
-            i#boton-favorito-icono.bi.text-info.fs-2(class = esFavorito ? 'bi-heart-fill' : 'bi-heart')
-    .row.gy-4
+    if (sesion.estadoCuenta === "En revisión")
+      if (sesion.ID_Usuario == negocio.ID_Negocio)
+        p.my-5.text-center.fs-1.text-secondary Tú cuenta está en revisión para ser aceptada. Pronto recibiras una respuesta de los administradores de HogarFinder.
+      else
+        p.my-5.text-center.fs-1.text-secondary Esta cuenta está en revisión
+    else if (sesion.estadoCuenta == 'Rechazada')
+      if (sesion.ID_Usuario == negocio.ID_Negocio)
+        p.my-5.text-center.fs-1.text-secondary Tú cuenta fue rechazada. Pronto los administradores de HogarFinder se pondrán en contacto contigo para más información.
+      else
+        p.my-5.text-center.fs-1.text-secondary Esta cuenta está en revisión
+    else if (sesion.estado == 'Aceptada')
+      section.row.gy-3.align-items-center.mb-5
+        .col-12.col-sm-8.col-md-9.col-xl-10.d-flex.align-items-center
+          img.rounded-circle.me-3(src='https://placehold.co/100/skyblue/white' alt='Usuario')
+          div
+            h1 #{negocio.Nombre_negocio}
+            p.text-muted #{negocio.Tipo_servicio}
+        .col-12.col-sm-4.col-md-3.col-xl-2.text-center
+          if (sesion.tipoCuenta === "negocio" && sesion.ID_Usuario == negocio.ID_Negocio)
+            a.btn.btn-info.btn-sm.text-white.fw-bold(href='/editar-perfil-negocio' role='button')
+              <i class="bi bi-pencil-square"></i>
+              | &nbsp;Editar datos
+      section.row.gy-3.align-items-center.mb-5
+        .col-12.col-md-4.col-lg-3.text-center
+          a.btn.btn-info.btn-lg.text-white.d-block(href='' role='button')
+            i.bi.bi-telephone-fill.me-1
+            | &nbsp;#{negocio.Telefono_Negocio}
+        .col-10.col-md-7.col-lg-8
+          i.bi.bi-geo-alt-fill
+          | &nbsp;#{negocio.Domicilio}
+        .col-2.col-md-1
+          if (sesion.tipoCuenta === 'cliente')
+            button.btn#boton-favorito(type='button' data-favorito='' + esFavorito)
+              i#boton-favorito-icono.bi.text-info.fs-2(class = esFavorito ? 'bi-heart-fill' : 'bi-heart')
+      .row.gy-4
       section.col-12.col-md-8.col-lg-6.col-xl-8
         .d-flex.justify-content-between.align-items-start
           h3.mb-3.fw-bold Publicaciones
