@@ -22,7 +22,7 @@ main.mt-5
             tr
               th(scope='row') #{solicitud.Nombre_negocio}
               td.text-center
-                a.btn.btn-info.btn-sm.text-white(href='' role='button')
+                a.btn.btn-info.btn-sm.text-white(href='https://wa.me/52' + solicitud.Telefono_Negocio target='_blank')
                   i.bi.bi-telephone-fill.me-1
                   | &nbsp;#{solicitud.Telefono_Negocio}
               td #{solicitud.Domicilio}
