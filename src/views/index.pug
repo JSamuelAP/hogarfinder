@@ -56,7 +56,7 @@ main
             .d-flex.flex-column.flex-sm-row
               .d-flex.d-sm-block
                 .servicio-thumbnail-200
-                  img.rounded-start.col(src=(servicio.foto ? '/images/' + servicio.foto : 'https://placehold.co/200/skyblue/white') alt='Servicio')
+                  img.rounded-start.col(src=(servicio.foto ? '/images/' + servicio.foto : '/images/default-service-photo.svg') alt='Servicio')
               div
                 .card-body
                   h5.card-title.fw-bold #{servicio.Titulo}

@@ -5,7 +5,7 @@ main.mt-5
   .container
     .row.gy-3.mb-5
       .col-12.col-md-6.col-lg-4
-        img.w-100(src=(servicio.foto ? '/images/' + servicio.foto : 'https://placehold.co/200/skyblue/white') alt='Servicio')
+        img.w-100(src=(servicio.foto ? '/images/' + servicio.foto : '/images/default-service-photo.svg') alt='Servicio')
       .col-12.col-md-6.col-lg-8
         h1.fw-bold #{servicio.Titulo}
         p.text-muted
