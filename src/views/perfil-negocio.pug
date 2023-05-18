@@ -93,7 +93,7 @@ main.mt-5
             each comentario in comentarios
               article.mb-4
                 div
-                  img.rounded-circle(src='/images/default-user-photo.svg' alt='Perfil cliente' style='width: 30px')
+                  img.rounded-circle(src=comentario.foto ? '/images/' + comentario.foto : '/images/default-user-photo.svg' alt='Perfil cliente' style='width: 30px; height: 30px; object-fit: cover')
                   h6.fw-bold.d-inline-block &nbsp;#{comentario.nombre_cliente}
                 p #{comentario.Comentario}
 include partials/footer

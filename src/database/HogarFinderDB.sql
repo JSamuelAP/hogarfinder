@@ -12,7 +12,7 @@ foto varbinary,
 primary key ( ID_Cliente ))
 
 ALTER TABLE Cliente ADD CONSTRAINT UQ_Correo UNIQUE (Correo_Electronico);
-
+ALTER TABLE Cliente ALTER COLUMN foto char(25);
 
 create table Negocio
 (ID_Negocio int identity(1,1),

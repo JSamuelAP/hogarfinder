@@ -35,15 +35,45 @@ export const getCliente = async (req, res) => {
 	});
 };
 
-export const renderEditarCliente = async (req, res) => {
+export const getDatosCliente = async (req, res) => {
 	if (req.session.tipoCuenta !== "cliente") {
 		res.redirect("/");
 		return;
 	}
 
+	const id = req.session.ID_Usuario;
+	const pool = await getConnection();
+	const cliente = await pool
+		.request()
+		.input("id", id)
+		.query(queries.getDatosCliente);
+
 	res.render("editar-perfil", {
 		title: "Editar datos",
-		scripts: ["habilitar-nuevo-password.js"],
+		datos: cliente.recordset[0],
 		sesion: req.session,
+		scripts: ["habilitar-nuevo-password.js", "actualizarPerfilCliente.js"],
 	});
+};
+
+export const putCliente = async (req, res) => {
+	const id = req.session.ID_Usuario;
+	const { nombre, apellido, correo, pass, hiddenPass, hiddenFoto } = req.body;
+
+	try {
+		const pool = await getConnection();
+		await pool
+			.request()
+			.input("nombre", sql.Char, nombre)
+			.input("apellido", sql.Char, apellido)
+			.input("correo", sql.Char, correo)
+			.input("foto", sql.Char, (req.file && req.file.filename) || hiddenFoto)
+			.input("contraseña", sql.Char, pass || hiddenPass)
+			.input("id", id)
+			.query(queries.putCliente);
+
+		res.redirect("/perfil");
+	} catch (error) {
+		console.log(error);
+	}
 };

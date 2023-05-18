@@ -6,35 +6,37 @@ main.mt-5
     h1.fw-bold.mb-5 Editar datos
     .row.justify-content-center
       .col-10.col-sm-8.col-lg-6.col-xl-4
-        form
+        form#actualizar-datos-form(action='/editar-perfil' method='POST' enctype='multipart/form-data')
           .mb-4
             label.form-label(for='input-nombre-cliente')
               | Nombre
-            input#input-nombre-cliente.form-control(type='text' value='Nombre actual del cliente')
+            input#input-nombre-cliente.form-control(type='text' value=datos.Nombre name='nombre')
           .mb-4
             label.form-label(for='input-apellido-cliente')
               | Apellido
-            input#input-apellido-cliente.form-control(type='text' value='Apellido actual del cliente')
+            input#input-apellido-cliente.form-control(type='text' value=datos.Apellido name='apellido')
           .mb-4
             label.form-label(for='input-correo-cliente')
               | Correo
-            input#input-correo-cliente.form-control(type='email' value='correoactual@gmail.com')
+            input#input-correo-cliente.form-control(type='email' value=datos.Correo_Electronico name='correo')
           .mb-4
             label.form-label(for='input-foto-cliente')
               | Foto de perfil
-            input#input-foto-cliente.form-control(type='file' accept='image/*')
+            input#input-foto-cliente.form-control(type='file' accept='image/*' name='foto')
           .mb-4
             label.form-label(for='input-nuevo-password')
               | Nueva contraseña
-            input#input-nuevo-password.form-control(type='password')
+            input#input-nuevo-password.form-control(type='password' name='pass')
           .mb-4
             label.form-label(for='input-confirmar-nuevo-password')
               | Confirmar nueva contraseña
-            input#input-confirmar-nuevo-password.form-control(type='password' disabled)
+            input#input-confirmar-nuevo-password.form-control(type='password' name='confirmarPass' disabled)
           .mb-4
             label.form-label(for='input-password-actual')
               | Contraseña actual
-            input#input-password-actual.form-control(type='password' disabled)
+            input#input-password-actual.form-control(type='password' name='passActual' disabled)
+          input(type='hidden' name='hiddenPass' value=datos.Contraseña)
+          input(type='hidden' name='hiddenFoto' value=datos.foto)
           button.btn.btn-info.btn-lg.text-white.px-5(type='submit')
             i.bi.bi-arrow-counterclockwise
             | &nbsp;Actualizar

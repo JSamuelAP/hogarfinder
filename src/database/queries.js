@@ -12,6 +12,8 @@ export const queries = {
 		"SELECT c.*, u.foto, CONCAT(TRIM(u.Nombre), ' ', u.Apellido) AS nombre_cliente FROM [HogarFinder].[dbo].[Calificacion] c INNER JOIN [HogarFinder].[dbo].[Cliente] u ON c.ID_Cliente = u.ID_Cliente WHERE c.ID_Negocio = @id;",
 	getCliente:
 		"SELECT ID_Cliente, Correo_Electronico, foto, CONCAT(TRIM(Nombre), ' ', Apellido) AS Nombre FROM [HogarFinder].[dbo].[Cliente] WHERE ID_Cliente = @id;",
+	getDatosCliente:
+		"SELECT Nombre, Apellido, Correo_Electronico, Contraseña, foto FROM [HogarFinder].[dbo].[Cliente] WHERE ID_Cliente = @id;",
 	getNegociosFavoritos:
 		"SELECT nf.ID_Negocio, n.Nombre_negocio, n.foto FROM [HogarFinder].[dbo].[Negocios_Favoritos] nf INNER JOIN [HogarFinder].[dbo].[Negocio] n ON nf.ID_Negocio = n.ID_Negocio WHERE ID_Cliente = @id;",
 	getSolicitudes:
@@ -51,4 +53,6 @@ export const queries = {
 	getServiciosByCategoria: "n.Tipo_servicio = @categoria",
 	putSolicitud:
 		"UPDATE [HogarFinder].[dbo].[Solicitud] SET Estado = @estado WHERE ID_solicitud = @id;",
+	putCliente:
+		"UPDATE [HogarFinder].[dbo].[Cliente] SET Nombre = @nombre, Apellido = @apellido, Correo_Electronico = @correo, foto = @foto, Contraseña = @contraseña WHERE ID_Cliente = @id;",
 };
