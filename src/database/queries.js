@@ -15,7 +15,7 @@ export const queries = {
 	getNegociosFavoritos:
 		"SELECT nf.ID_Negocio, n.Nombre_negocio, n.foto FROM [HogarFinder].[dbo].[Negocios_Favoritos] nf INNER JOIN [HogarFinder].[dbo].[Negocio] n ON nf.ID_Negocio = n.ID_Negocio WHERE ID_Cliente = @id;",
 	getSolicitudes:
-		"SELECT n.Nombre_negocio, n.Telefono_Negocio, n.Domicilio, n.Tipo_Negocio, s.INE, s.RFC, s.Comprobante_domicilio, TRIM(s.Estado) Estado FROM [HogarFinder].[dbo].[Solicitud] s INNER JOIN [HogarFinder].[dbo].[Negocio] n ON s.ID_Negocio = n.ID_Negocio ORDER BY CASE WHEN s.Estado = 'En revisión' THEN 1 ELSE 4 END;",
+		"SELECT s.ID_solicitud, n.Nombre_negocio, n.Telefono_Negocio, n.Domicilio, n.Tipo_Negocio, s.INE, s.RFC, s.Comprobante_domicilio, TRIM(s.Estado) Estado FROM [HogarFinder].[dbo].[Solicitud] s INNER JOIN [HogarFinder].[dbo].[Negocio] n ON s.ID_Negocio = n.ID_Negocio ORDER BY CASE WHEN s.Estado = 'En revisión' THEN 1 ELSE 4 END;",
 	getReportes:
 		"SELECT CONCAT(TRIM(c.Nombre), ' ', c.Apellido) AS nombre_cliente, c.Correo_Electronico, n.ID_Negocio, n.Nombre_Negocio, r.problema FROM [HogarFinder].[dbo].[reporte] r INNER JOIN [HogarFinder].[dbo].[Cliente] c ON r.ID_Cliente = c.ID_Cliente INNER JOIN [HogarFinder].[dbo].[Negocio] n ON n.ID_Negocio = r.ID_Negocio;",
 	postCalificacion:
@@ -49,4 +49,6 @@ export const queries = {
 	getServiciosByPrecio: "s.precio BETWEEN @precioMinimo AND @precioMaximo",
 	getServiciosByDomicilio: "n.Domicilio LIKE '%' + @Domicilio + '%'",
 	getServiciosByCategoria: "n.Tipo_servicio = @categoria",
+	putSolicitud:
+		"UPDATE [HogarFinder].[dbo].[Solicitud] SET Estado = @estado WHERE ID_solicitud = @id;",
 };

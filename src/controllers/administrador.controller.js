@@ -13,6 +13,7 @@ export const getSolicitudes = async (req, res) => {
 		title: "Solicitudes",
 		solicitudes: solicitudes.recordset,
 		sesion: req.session,
+		scripts: ["actualizarSolicitudes.js"],
 	});
 };
 
@@ -30,4 +31,20 @@ export const getReportes = async (req, res) => {
 		reportes: reportes.recordset,
 		sesion: req.session,
 	});
+};
+
+export const putSolicitud = async (req, res) => {
+	const pool = await getConnection();
+	try {
+		await pool
+			.request()
+			.input("estado", sql.Char, req.body.estado)
+			.input("id", sql.Int, req.body.id)
+			.query(queries.putSolicitud);
+
+		res.status(200).json({ msg: "Solicitud actualizada con éxito" });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ error: "Error al actualizar la solicitud" });
+	}
 };

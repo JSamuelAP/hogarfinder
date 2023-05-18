@@ -25,10 +25,8 @@ main.mt-5
                 a.btn.btn-info.btn-sm.text-white(href='' role='button')
                   i.bi.bi-telephone-fill.me-1
                   | &nbsp;#{solicitud.Telefono_Negocio}
-              td
-                | #{solicitud.Domicilio}
-              td
-                | #{solicitud.Tipo_Negocio}
+              td #{solicitud.Domicilio}
+              td #{solicitud.Tipo_Negocio}
               td.text-center
                 a.link-dark.fs-1(href='/pdf/' + solicitud.INE target='_blank')
                   i.bi.bi-file-earmark-pdf
@@ -39,12 +37,12 @@ main.mt-5
                 a.link-dark.fs-1(href='/pdf/' + solicitud.Comprobante_domicilio target='_blank')
                   i.bi.bi-file-earmark-pdf
               td
-                select.form-select.border-2(class=(solicitud.Estado === 'En revisión' ? 'border-warning' : solicitud.Estado === 'Aceptada' ? 'border-success' : 'border-danger'))
+                select.form-select.border-2(class=(solicitud.Estado === 'En revisión' ? 'border-warning' : solicitud.Estado === 'Aceptada' ? 'border-success' : 'border-danger') data-id=solicitud.ID_solicitud)
                   option(value='En revisión' selected=(solicitud.Estado === 'En revisión')) En revisión
                   option.text-success(value='Aceptada' selected=(solicitud.Estado === 'Aceptada')) Aceptada
                   option.text-danger(value='Rechazada' selected=(solicitud.Estado === 'Rechazada')) Rechazada
     .text-end
-      button.btn.btn-info.btn-lg.text-white(type='button')
+      button#btn-actualizar.btn.btn-info.btn-lg.text-white(type='button')
         i.bi.bi-save.me-1
         | &nbsp;Guardar
 include partials/footer

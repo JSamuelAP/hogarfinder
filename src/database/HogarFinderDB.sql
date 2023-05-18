@@ -69,7 +69,9 @@ primary key (ID_solicitud),
 Foreign key (ID_Negocio) references Negocio (ID_Negocio))
 
 ALTER TABLE Solicitud ADD CONSTRAINT UQ_Solicitud UNIQUE (ID_Negocio);
-
+ALTER TABLE Solicitud ALTER COLUMN Comprobante_domicilio char(25);
+ALTER TABLE Solicitud ALTER COLUMN INE char(25);
+ALTER TABLE Solicitud ALTER COLUMN RFC char(25);
 
 create table publicacion
 (ID_Post int identity(1,1),
