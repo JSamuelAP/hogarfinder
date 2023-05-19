@@ -30,7 +30,7 @@ main.mt-5
           .mb-4
             label.form-label(for='input-correo-cliente')
               | Correo
-            input#input-correo-cliente.form-control(type='email' name='emailCliente' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' required)
+            input#input-correo-cliente.form-control(type='email' name='emailCliente' pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}' required)
           .mb-4
             label.form-label(for='input-password-cliente')
               | Contraseña
@@ -96,7 +96,7 @@ main.mt-5
           .mb-4
             label.form-label(for='input-correo-negocio')
               | Correo
-            input#input-correo-negocio.form-control(type='email' name='emailNegocio' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' required)
+            input#input-correo-negocio.form-control(type='email' name='emailNegocio' pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}' required)
           .mb-4
             label.form-label(for='input-password-negocio')
               | Contraseña

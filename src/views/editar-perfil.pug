@@ -18,7 +18,7 @@ main.mt-5
           .mb-4
             label.form-label(for='input-correo-cliente')
               | Correo
-            input#input-correo-cliente.form-control(type='email' value=datos.Correo_Electronico name='correo')
+            input#input-correo-cliente.form-control(type='email' value=datos.Correo_Electronico name='correo' pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}')
           .mb-4
             label.form-label(for='input-foto-cliente')
               | Foto de perfil

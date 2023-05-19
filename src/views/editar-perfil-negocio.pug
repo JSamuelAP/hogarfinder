@@ -19,7 +19,7 @@ main.mt-5
             .mb-4
               label.form-label(for='input-telefono-negocio')
                 | Teléfono
-              input#input-telefono-negocio.form-control(type='tel' name='telefono' value=datos.Telefono_Negocio)
+              input#input-telefono-negocio.form-control(type='tel' name='telefono' value=datos.Telefono_Negocio pattern='[0-9]{10}')
             .mb-4
               label.form-label(for='input-direccion-negocio')
                 | Dirección
@@ -27,7 +27,7 @@ main.mt-5
             .mb-4
               label.form-label(for='input-correo-negocio')
                 | Correo
-              input#input-correo-negocio.form-control(type='email' name='correo' value=datos.Correo_Electronico)
+              input#input-correo-negocio.form-control(type='email' name='correo' value=datos.Correo_Electronico  pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}')
             .mb-4
               label.form-label(for='input-foto-negocio')
                 | Foto de perfil
