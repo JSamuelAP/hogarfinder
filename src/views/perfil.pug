@@ -5,7 +5,7 @@ main.mt-5
   .container
     section.row.gy-3.align-items-center.mb-5
       .col-12.col-sm-8.col-md-9.col-xl-10.d-flex.align-items-center
-        img.rounded-circle.me-3(src=cliente.foto ? '/images/' + cliente.foto : '/images/default-user-photo.svg' alt='Perfil de usuario' style='width:100px; height:100px; object-fit:cover')
+        img.rounded-circle.me-3.profile-photo(src=cliente.foto ? '/images/' + cliente.foto : '/images/default-user-photo.svg' alt='Perfil de usuario' style='width:100px')
         h1 #{cliente.Nombre}
       .col-12.col-sm-4.col-md-3.col-xl-2.text-center
         a.btn.btn-info.btn-lg.text-white(href='/editar-perfil' role='button')
@@ -28,7 +28,7 @@ main.mt-5
               a.card.text-decoration-none.text-reset(href='/perfil-negocio/' + negocio.ID_Negocio)
                 .d-flex
                   div
-                    img.rounded-start(src='/images/default-business-photo.svg' alt='Perfil negocio')
+                    img.rounded-start.profile-photo(src=negocio.foto ? '/images/' + negocio.foto : '/images/default-business-photo.svg' alt='Perfil negocio' style='width:100px')
                   div
                     .card-body
                       h5.card-title #{negocio.Nombre_negocio}

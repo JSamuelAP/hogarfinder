@@ -16,7 +16,7 @@ main.mt-5
     else if (negocio.Estado == 'Aceptada')
       section.row.gy-3.align-items-center.mb-5
         .col-12.col-sm-8.col-md-9.col-xl-10.d-flex.align-items-center
-          img.rounded-circle.me-3(src='/images/default-business-photo.svg' alt='Perfil de negocio')
+          img.rounded-circle.me-3.profile-photo(src=negocio.foto ? '/images/' + negocio.foto :'/images/default-business-photo.svg' alt='Perfil de negocio' style="width:100px")
           div
             h1 #{negocio.Nombre_negocio}
             p.text-muted #{negocio.Tipo_servicio}
@@ -93,7 +93,7 @@ main.mt-5
             each comentario in comentarios
               article.mb-4
                 div
-                  img.rounded-circle(src=comentario.foto ? '/images/' + comentario.foto : '/images/default-user-photo.svg' alt='Perfil cliente' style='width: 30px; height: 30px; object-fit: cover')
+                  img.rounded-circle.profile-photo(src=comentario.foto ? '/images/' + comentario.foto : '/images/default-user-photo.svg' alt='Perfil cliente' style='width: 30px')
                   h6.fw-bold.d-inline-block &nbsp;#{comentario.nombre_cliente}
                 p #{comentario.Comentario}
 include partials/footer

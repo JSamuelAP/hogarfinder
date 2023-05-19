@@ -56,16 +56,24 @@ export const getNegocio = async (req, res) => {
 	});
 };
 
-export const renderEditarNegocio = async (req, res) => {
+export const getDatosNegocio = async (req, res) => {
 	if (req.session.tipoCuenta !== "negocio") {
 		res.redirect("/");
 		return;
 	}
 
+	const id = req.session.ID_Usuario;
+	const pool = await getConnection();
+	const negocio = await pool
+		.request()
+		.input("id", id)
+		.query(queries.getDatosNegocio);
+
 	res.render("editar-perfil-negocio", {
 		title: "Editar datos",
-		scripts: ["habilitar-nuevo-password.js"],
+		datos: negocio.recordset[0],
 		sesion: req.session,
+		scripts: ["habilitar-nuevo-password.js", "actualizarPerfilNegocio.js"],
 	});
 };
 
@@ -174,5 +182,29 @@ export const quitarFavorito = async (req, res) => {
 	} catch (err) {
 		console.log(err);
 		res.status(500).send("Error al desmarcar como favorito al negocio");
+	}
+};
+
+export const putNegocio = async (req, res) => {
+	const id = req.session.ID_Usuario;
+	const { nombre, telefono, domicilio, correo, pass, hiddenPass, hiddenFoto } =
+		req.body;
+
+	try {
+		const pool = await getConnection();
+		await pool
+			.request()
+			.input("nombre", sql.Char, nombre)
+			.input("telefono", sql.Char, telefono)
+			.input("domicilio", sql.Char, domicilio)
+			.input("correo", sql.Char, correo)
+			.input("foto", sql.Char, (req.file && req.file.filename) || hiddenFoto)
+			.input("contraseña", sql.Char, pass || hiddenPass)
+			.input("id", id)
+			.query(queries.putNegocio);
+
+		res.redirect("/perfil-negocio/" + id);
+	} catch (error) {
+		console.log(error);
 	}
 };

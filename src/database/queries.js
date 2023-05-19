@@ -8,6 +8,8 @@ export const queries = {
 		"SELECT s.*, n.Nombre_negocio, n.Telefono_Negocio FROM [HogarFinder].[dbo].[publicacion] s INNER JOIN [HogarFinder].[dbo].[Negocio] n ON s.ID_Negocio = n.ID_Negocio WHERE ID_Post = @id",
 	getNegocio:
 		"SELECT n.*, TRIM(s.Estado) Estado FROM [HogarFinder].[dbo].[Negocio] n INNER JOIN [HogarFinder].[dbo].[Solicitud] s ON n.ID_Negocio = s.ID_Negocio WHERE n.ID_Negocio = @id",
+	getDatosNegocio:
+		"SELECT Nombre_negocio, Correo_Electronico, Telefono_Negocio, Domicilio, Contraseña, foto FROM [HogarFinder].[dbo].[Negocio] WHERE ID_Negocio= @id;",
 	getComentarios:
 		"SELECT c.*, u.foto, CONCAT(TRIM(u.Nombre), ' ', u.Apellido) AS nombre_cliente FROM [HogarFinder].[dbo].[Calificacion] c INNER JOIN [HogarFinder].[dbo].[Cliente] u ON c.ID_Cliente = u.ID_Cliente WHERE c.ID_Negocio = @id;",
 	getCliente:
@@ -55,4 +57,6 @@ export const queries = {
 		"UPDATE [HogarFinder].[dbo].[Solicitud] SET Estado = @estado WHERE ID_solicitud = @id;",
 	putCliente:
 		"UPDATE [HogarFinder].[dbo].[Cliente] SET Nombre = @nombre, Apellido = @apellido, Correo_Electronico = @correo, foto = @foto, Contraseña = @contraseña WHERE ID_Cliente = @id;",
+	putNegocio:
+		"UPDATE [HogarFinder].[dbo].[Negocio] SET Nombre_negocio = @nombre, Telefono_Negocio = @telefono, Domicilio = @domicilio, Correo_Electronico = @correo, foto = @foto, Contraseña = @contraseña WHERE ID_Negocio= @id;",
 };
