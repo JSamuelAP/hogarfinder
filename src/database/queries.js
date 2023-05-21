@@ -59,4 +59,12 @@ export const queries = {
 		"UPDATE [HogarFinder].[dbo].[Cliente] SET Nombre = @nombre, Apellido = @apellido, Correo_Electronico = @correo, foto = @foto, Contraseña = @contraseña WHERE ID_Cliente = @id;",
 	putNegocio:
 		"UPDATE [HogarFinder].[dbo].[Negocio] SET Nombre_negocio = @nombre, Telefono_Negocio = @telefono, Domicilio = @domicilio, Correo_Electronico = @correo, foto = @foto, Contraseña = @contraseña WHERE ID_Negocio= @id;",
+	deleteCalificacionByCliente:
+		"DELETE FROM [HogarFinder].[dbo].[Calificacion] WHERE ID_Cliente = @id;",
+	deleteNegocioFavoritoByCliente:
+		"DELETE FROM [HogarFinder].[dbo].[Negocios_Favoritos] WHERE ID_Cliente = @id;",
+	deleteReporteByCliente:
+		"DELETE FROM [HogarFinder].[dbo].[reporte] WHERE ID_Cliente = @id;",
+	deleteCliente:
+		"DELETE FROM [HogarFinder].[dbo].[Cliente] WHERE ID_Cliente = @id;",
 };

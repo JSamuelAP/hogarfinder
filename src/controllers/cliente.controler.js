@@ -52,7 +52,11 @@ export const getDatosCliente = async (req, res) => {
 		title: "Editar datos",
 		datos: cliente.recordset[0],
 		sesion: req.session,
-		scripts: ["habilitar-nuevo-password.js", "actualizarPerfilCliente.js"],
+		scripts: [
+			"habilitar-nuevo-password.js",
+			"actualizarPerfilCliente.js",
+			"eliminar-cuenta.js",
+		],
 	});
 };
 
@@ -73,6 +77,31 @@ export const putCliente = async (req, res) => {
 			.query(queries.putCliente);
 
 		res.redirect("/perfil");
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export const deleteCliente = async (req, res) => {
+	const id = req.session.ID_Usuario;
+
+	try {
+		const pool = await getConnection();
+		await pool
+			.request()
+			.input("id", id)
+			.query(queries.deleteCalificacionByCliente);
+		await pool
+			.request()
+			.input("id", id)
+			.query(queries.deleteNegocioFavoritoByCliente);
+		await pool.request().input("id", id).query(queries.deleteReporteByCliente);
+		const cliente = await pool
+			.request()
+			.input("id", id)
+			.query(queries.deleteCliente);
+
+		res.redirect("/logout");
 	} catch (error) {
 		console.log(error);
 	}
