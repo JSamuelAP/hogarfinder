@@ -6,7 +6,7 @@ btnEliminarCliente.addEventListener("click", async () => {
 	);
 
 	if (confirmar) {
-		await fetch("/eliminar-cuenta", {
+		await fetch("/eliminar-cuenta-cliente", {
 			method: "DELETE",
 		});
 

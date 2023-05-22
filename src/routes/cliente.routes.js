@@ -12,6 +12,6 @@ const router = Router();
 router.get("/perfil/", getCliente);
 router.get("/editar-perfil", getDatosCliente);
 router.post("/editar-perfil", uploadImg.single("foto"), putCliente);
-router.delete("/eliminar-cuenta", deleteCliente);
+router.delete("/eliminar-cuenta-cliente", deleteCliente);
 
 export default router;

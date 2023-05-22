@@ -73,7 +73,11 @@ export const getDatosNegocio = async (req, res) => {
 		title: "Editar datos",
 		datos: negocio.recordset[0],
 		sesion: req.session,
-		scripts: ["habilitar-nuevo-password.js", "actualizarPerfilNegocio.js"],
+		scripts: [
+			"habilitar-nuevo-password.js",
+			"actualizarPerfilNegocio.js",
+			"eliminar-cuenta-negocio.js",
+		],
 	});
 };
 
@@ -204,6 +208,33 @@ export const putNegocio = async (req, res) => {
 			.query(queries.putNegocio);
 
 		res.redirect("/perfil-negocio/" + id);
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export const deleteNegocio = async (req, res) => {
+	const id = req.session.ID_Usuario;
+
+	try {
+		const pool = await getConnection();
+		await pool
+			.request()
+			.input("id", id)
+			.query(queries.deleteCalificacionByNegocio);
+		await pool
+			.request()
+			.input("id", id)
+			.query(queries.deleteNegocioFavoritoByNegocio);
+		await pool.request().input("id", id).query(queries.deleteReporteByNegocio);
+		await pool.request().input("id", id).query(queries.deletePostByNegocio);
+		await pool
+			.request()
+			.input("id", id)
+			.query(queries.deleteSolicitudByNegocio);
+		await pool.request().input("id", id).query(queries.deleteNegocio);
+
+		res.redirect("/logout");
 	} catch (error) {
 		console.log(error);
 	}

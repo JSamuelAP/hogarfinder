@@ -67,4 +67,16 @@ export const queries = {
 		"DELETE FROM [HogarFinder].[dbo].[reporte] WHERE ID_Cliente = @id;",
 	deleteCliente:
 		"DELETE FROM [HogarFinder].[dbo].[Cliente] WHERE ID_Cliente = @id;",
+	deleteCalificacionByNegocio:
+		"DELETE FROM [HogarFinder].[dbo].[Calificacion] WHERE ID_Negocio = @id;",
+	deleteNegocioFavoritoByNegocio:
+		"DELETE FROM [HogarFinder].[dbo].[Negocios_Favoritos] WHERE ID_Negocio = @id;",
+	deleteReporteByNegocio:
+		"DELETE FROM [HogarFinder].[dbo].[reporte] WHERE ID_Negocio = @id;",
+	deletePostByNegocio:
+		"DELETE FROM [HogarFinder].[dbo].[publicacion] WHERE ID_Negocio = @id;",
+	deleteSolicitudByNegocio:
+		"DELETE FROM [HogarFinder].[dbo].[Solicitud] WHERE ID_Negocio = @id;",
+	deleteNegocio:
+		"DELETE FROM [HogarFinder].[dbo].[Negocio] WHERE ID_Negocio = @id;",
 };

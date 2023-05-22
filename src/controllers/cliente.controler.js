@@ -55,7 +55,7 @@ export const getDatosCliente = async (req, res) => {
 		scripts: [
 			"habilitar-nuevo-password.js",
 			"actualizarPerfilCliente.js",
-			"eliminar-cuenta.js",
+			"eliminar-cuenta-cliente.js",
 		],
 	});
 };

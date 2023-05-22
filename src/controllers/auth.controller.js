@@ -78,10 +78,18 @@ export const postCuenta = async (req, res) => {
 				.input("Contraseña", sql.VarChar, passwordCliente)
 				.query(queries.postCliente);
 
-			res.redirect("/perfil/" + nuevoCliente.recordset[0].ID_Cliente);
+			req.session.logged = true;
+			req.session.tipoCuenta = "cliente";
+			req.session.ID_Usuario = nuevoCliente.recordset[0].ID_Cliente;
+
+			res.redirect("/perfil/");
 		} catch (err) {
 			console.error(err);
-			res.status(500).send("Error al crear el cliente");
+			res
+				.status(500)
+				.send(
+					"Error al crear el cliente, posiblemente el correo proporcionado ya fue registrado"
+				);
 		}
 	} else if (tipoCuenta == "negocio") {
 		const {
@@ -115,10 +123,19 @@ export const postCuenta = async (req, res) => {
 				.input("Comprobante", sql.Char, req.files["comprobante"][0].filename)
 				.query(queries.PostSolicitud);
 
+			req.session.logged = true;
+			req.session.tipoCuenta = "negocio";
+			req.session.ID_Usuario = nuevoNegocio.recordset[0].ID_Negocio;
+			req.session.estadoCuenta = nuevoNegocio.recordset[0].Estado;
+
 			res.redirect("/perfil-negocio/" + nuevoNegocio.recordset[0].ID_Negocio);
 		} catch (err) {
 			console.error(err);
-			res.status(500).send("Error al crear el negocio");
+			res
+				.status(500)
+				.send(
+					"Error al crear el negocio, posiblemente el correo proporcionado ya fue registrado."
+				);
 		}
 	}
 };
