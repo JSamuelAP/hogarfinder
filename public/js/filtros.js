@@ -42,7 +42,7 @@ form.addEventListener("submit", (event) => {
 
 	if (
 		checkPrecio.checked &&
-		inputPrecioMinimo.value > inputPrecioMaximo.value
+		parseInt(inputPrecioMinimo.value) > parseInt(inputPrecioMaximo.value)
 	) {
 		alert("El precio mínimo no puede ser mayor al precio máximo");
 		return;
