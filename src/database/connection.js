@@ -1,7 +1,7 @@
 import sql from "mssql";
 import config from "../config";
 
-// Configuraciones para la conexción a la BD
+// Configuraciones para la conexión a la BD
 const dbSettings = {
 	user: config.dbUser,
 	password: config.dbPassword,
